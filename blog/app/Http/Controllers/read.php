@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\item_model;
-
+use Illuminate\Support\Facades\DB;
 class read extends Controller
 {
     public function index()
@@ -13,16 +13,30 @@ class read extends Controller
         # code...
     }
     public function read()
+    {$flights=item_model::all();
+        // var_dump($flights[0]['nama_item']);
+        $p=$flights==null;
+        $data='flights';
+        if ($p) {
+             return view('input_produk');
+        } else {
+            foreach ($flights as $flight) {
+            if (
+            $flight->nama_item=="default") {
+            $view='update_produk';
+            $data='flight';
+            return \view($view,compact('flight'));
+        }else{
+
+            $view='input_produk';}
+
+        }
+
+    }return \view($view,compact('flights'));
+    }
+    public function a()
     {
-        $flights=item_model::all();
-        foreach ($flights as $flight) {
-            if ($flight->nama_item=="default") {
-
-                return view('update_produk',compact('flight'));
-            } else {
-                return view('input_produk',compact('flight')); }                  }
-
-
+        view('update_produk',compact($data));
     }
     public function out_view()
     {
@@ -30,9 +44,10 @@ class read extends Controller
     }
     public function data_out(Request $request)
     {
-        echo "rin";
-        $data=item_model::where('barcode', $request->barcode)->frist();
-        dd($data);
+
+$item = DB::table('item')->where('barcode', $request->barcode)->first();
+
+        return \view('barang_keluar',compact('item'));
     }
 
 

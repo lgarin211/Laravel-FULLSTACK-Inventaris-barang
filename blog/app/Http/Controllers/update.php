@@ -10,7 +10,7 @@ class update extends Controller
     //
 public function update(Request $request,$id)
 {
-
+// \dd($_POST);
     // item_model::where('id', 1)
     //       ->where('nama_item', $request->nama_item)
     //       ->update(['delayed' => 1]);

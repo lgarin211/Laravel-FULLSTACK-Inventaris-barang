@@ -17,9 +17,10 @@ class CreateItemTable extends Migration
             $table->id();
             $table->string('nama_item')->nullable();
             $table->string('kondisi_item')->nullable();
-            $table->string('banyak_item')->nullable();
+            $table->integer('banyak_item')->nullable();
             $table->string('lokasi_item')->nullable();
             $table->string('kategori')->nullable();
+            $table->integer('pos')->nullable();
             $table->string('barcode')->unique();
 
             $table->timestamps();

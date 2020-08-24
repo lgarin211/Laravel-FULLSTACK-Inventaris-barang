@@ -15,9 +15,10 @@ class creat extends Controller
         $item_set = new item_model;
         $item_set->nama_item =      "default";
         $item_set->kondisi_item =   "default";
-        $item_set->banyak_item =    "default";
+        $item_set->banyak_item =    0;
         $item_set->lokasi_item =    "default";
         $item_set->kategori =       "default";
+        $item_set->pos=             1;
         $item_set->barcode=         $request->barcode;
         $item_set->save();
         return redirect('/read_read');
