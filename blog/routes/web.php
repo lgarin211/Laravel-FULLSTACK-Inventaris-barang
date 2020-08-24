@@ -23,7 +23,7 @@ Route::get('/insert','read@index');
 Route::post('/insert','creat@creat');
 Route::get('/read_read','read@read');
 Route::put('/ui/{id}', 'update@update');
-
+Route::put('/keluar/{id}', 'update@update_out');
 
 Route::get('/out','read@out_view');
 Route::post('/out_find','read@data_out');
