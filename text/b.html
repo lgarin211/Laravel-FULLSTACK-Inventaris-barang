@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- <meta class="data_user" id="viewport" content="width=device-width, initial-scale=1.0"> -->
+<title>Document</title>
+</head>
+<body>
+    <div id="pot">run te word</div>
+<table class="tabel">
+<thead>
+
+<th>nama</th>
+<th>kelas</th>
+<th>umur</th>
+</thead>
+<tbody>
+<tr class="text_user1">
+<th class="data_user" id="kiku">kiku</th>
+<th class="data_user" id="fun">fun</th>
+<th class="data_user" id="26">26</th>
+</tr>
+<tr class="text_user2">
+<th class="data_user" id="dual">dual</th>
+<th class="data_user" id="fvl">fvl</th>
+<th class="data_user" id="84">84</th>
+</tr>
+<tr class="text_user3">
+<th class="data_user" id="ass">ass</th>
+<th class="data_user" id="lsd">lsd</th>
+<th class="data_user" id="837">837</th>
+</tr>
+<tr class="text_user4">
+<th class="data_user" id="asdaa">asdaa</th>
+<th class="data_user" id="sawdas">sawdasn</th>
+<th class="data_user" id="2335">2335</th>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<form id="abel">
+<input type="text" id="find">
+<button type="submit">cari</button>
+</form>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+<script >
+        console.log('start');
+    $(document).ready(function () {
+        $("#abel").submit(function(){
+    var text=$("#find").val();
+    $('#pot').html($('.tabel').html());
+    // console.log(text);
+    // console.log(end);
+    event.preventDefault();
+    });
+    });
+    
+    </script>
+</body>
+</html>
