@@ -15,6 +15,12 @@ class CreateKomputerTable extends Migration
     {
         Schema::create('komputer', function (Blueprint $table) {
             $table->id();
+            $table->string('RAM')->nullable();
+            $table->string('HDD')->nullable();
+            $table->string('SYMT')->nullable();
+            $table->string('Prosesor')->nullable();
+            $table->string('TPS')->nullable();
+            $table->string('Komputer_barcode')->unique();
             $table->timestamps();
         });
     }

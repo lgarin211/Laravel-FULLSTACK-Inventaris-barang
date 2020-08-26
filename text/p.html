@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,12 +13,12 @@
   <title>SB Admin 2 - Blank</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{ asset('data') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://getbootstrap.com/data/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{ asset('data') }}/css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link href="https://getbootstrap.com/data/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body id="page-top">
@@ -64,13 +63,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">TOLLS F :</h6>
-            <a class="collapse-item" href="/kategori_t/katerori_k/tools.katerori_add">make new kategori</a>
-            <a class="collapse-item" href="/kondisi_t/kondisi_k/tools.kondisi_add">make new kondisi</a>
-            <a class="collapse-item" href="/key_primary/key_k/tools.key_add">make new key</a>
-            <a class="collapse-item" href="/lokasi_t/lokasi_k/tools.location_add">make new costem location</a>
-            <a class="collapse-item" href="/lokasi_t/komponen/tools.komponen_add">make new komponen</a>
-      </div>
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
         </div>
       </li>
 
@@ -177,6 +173,138 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            @yield('conten')
+            
+<form action="/insert" method="POST">
+    <input type="text" name="barcode" autofocus>
+    <input type="hidden" name="_token" value="ifFoqFBuRrVmCwqncmWf0GlDBcAjRGHDyz9TP391">    <button type="submit">kirim</button>
+</form>
 
-            @extends('template.foot')
+<div class="container">
+    
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+          <thead>
+            <tr role="row">
+                <th  >nama_item</th>
+                <th >kondisi_item</th>
+                <th >banyak_item</th>
+                <th >lokasi_item</th>
+                <th >kategori date</th>
+                <th >barcode</th></tr>
+          </thead>
+          <tfoot>
+            <tr>
+                <th >nama_item</th>
+                <th >kondisi_item</th>
+                <th >banyak_item</th>
+                <th >lokasi_item</th>
+                <th >kategori</th>
+                <th >barcode</th></tr>
+          </tfoot>
+          <tbody>
+            <tr>
+        <tr >
+          <td >sample</td>
+          <td>sample</td>
+          <td>1</td>
+          <td>sample</td>
+          <td>sample</td>
+          <td>sample</td>
+        </tr>
+              <tr>
+        <tr >
+          <td >jajdsohaidaosdagosidhaisho</td>
+          <td>pilih Kondisi Barang</td>
+          <td>4</td>
+          <td>komputer</td>
+          <td></td>
+          <td>asd</td>
+        </tr>
+                </tbody>
+        </table>
+    </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+  </tbody>
+  </table></div>
+
+
+            
+
+</div>
+          <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://getbootstrap.com/data/vendor/jquery/jquery.min.js"></script>
+    <script src="https://getbootstrap.com/data/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="https://getbootstrap.com/data/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="https://getbootstrap.com/data/js/sb-admin-2.min.js"></script>
+
+ <!-- Page level plugins -->
+ <script src="https://getbootstrap.com/data/vendor/datatables/jquery.dataTables.min.js"></script>
+ <script src="https://getbootstrap.com/data/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+ <!-- Page level custom scripts -->
+ <script src="https://getbootstrap.com/data/js/demo/datatables-demo.js"></script>
+
+  </body>
+
+  </html>

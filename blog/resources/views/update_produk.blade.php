@@ -1,31 +1,42 @@
 @extends('template.head')
 @section('conten')
 @php
-// var_dump($flight);
+// dd($final);
+// var_dump($final[0]);
 @endphp
-<form action="/ui/{{$flight->id}}" method="POST">
-<h1>produk barcode is: {{ $flight->barcode }}</h1>
+<form action="/ui/{{$final[0]->id}}" method="POST">
+<h1>produk barcode is: {{ $final[0]->barcode }}</h1>
 @method('PUT')
 
-    <div class="form-group card-body card  text-white bg-primary mb-3">
+    <div class="form-group row. card-body card  text-white bg-primary mb-3">
 
         <label for="NAMA PRODUK">NAMA PRODUK</label>
-        <input type="text" name="nama_item" class="text-center form-control" placeholder="{{'nama item'}}" autofocus>
-<hr>
+<div class="row">
+        <select class="col-md-1 text-center form-control" name="" id="">
+<option value="">select your key</option>
+@foreach ($final[2][4] as $key)
+<option value="{{$key->value}}">{{$key->key}}</option>
+@endforeach
+        </select>
+        <input type="text" name="nama_item" class="text-center col-md-11 form-control" placeholder="{{'nama item'}}" autofocus>
+    </div>
+        <hr>
 
 <label for="NAMA PRODUK">KONDISI PRODUK</label>
         <select name="kondisi_item" class="form-control">
             <option>pilih Kondisi Barang<hr></option>
-            <option value="Baru">Baru</option>
-            <option value="Baik">Baik</option>
-            <option value="Rusak">Rusak</option>
+@foreach ($final[2][1] as $kondisi)
+<option value="{{$kondisi->value}}">{{$kondisi->value}}</option>
+@endforeach
+
+
         </select><hr>
         <label for="NAMA PRODUK">KATEGORY</label>
         <select name="kategori" class="form-control">
-            <option value="komputer">komponen komputer<hr></option>
-            <option value="kebersihan">komponen kebersihan</option>
-            <option value="guru">komponen guru</option>
-            <option value="lainnya">lainnya</option>
+            <option value="komputer">pilih kategori<hr></option>
+            @foreach ($final[2][3] as $kategori)
+            <option value="{{$kategori->value}}">{{$kategori->value}}</option>
+            @endforeach
         </select><hr>
         <label for="NAMA PRODUK">KUANTITAS PRODUK</label>
         <input type="number" name="banyak_item" class="text-center form-control" placeholder="{{'banyak item'}}" autofocus>
@@ -34,10 +45,11 @@
             <div class="col-md-6 mb-3">
               <label for="validationDefault01">Default Lokasi Item</label>
               <select name="lok1" class="form-control">
-                <option value="Instruktur Rpl">Instruktur Rpl</option>
-                <option value="Lab RPL1">Lab RPL1</option>
-                <option value="Lab RPL2">Lab RPL2</option>
-                <option value="0">Costem</option>
+                <option value="">pilih lokasi</option>
+                @foreach ($final[2][2] as $lokasi)
+                <option value="{{$lokasi->value}}">{{$lokasi->value}}</option>
+                @endforeach
+                      <option value="0">Costem</option>
             </select>
             </div>
             <div class="col-md-6 mb-3">

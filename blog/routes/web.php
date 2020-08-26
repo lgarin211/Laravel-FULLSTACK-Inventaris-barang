@@ -27,3 +27,13 @@ Route::put('/keluar/{id}', 'update@update_out');
 
 Route::get('/out','read@out_view');
 Route::post('/out_find','read@data_out');
+
+
+Route::get('/kategori_t/{view}/{table}','read@kategory');
+Route::get('/kondisi_t/{view}/{table}','read@kategory');
+Route::get('/lokasi_t/{view}/{table}','read@kategory');
+Route::get('/key_primary/{view}/{table}','read@kategory');
+Route::get('/komponen_t/{view}/{table}','read@kategory');
+
+Route::post('/make_C/{table}','creat@creat_key');
+

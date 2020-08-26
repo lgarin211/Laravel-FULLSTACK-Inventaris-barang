@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\item_model;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;use Illuminate\Support\Facades\DB;
 
 
 class creat extends Controller
@@ -24,4 +24,13 @@ class creat extends Controller
         return redirect('/read_read');
         # code...
     }
+    public function creat_key(Request $request,$tabel)
+    {
+        DB::table($tabel)->insert(
+            ['value' => $request->value, 'key' => $request->key]
+        );
+        return redirect('/');
+    }
+
 }
+

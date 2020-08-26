@@ -23,20 +23,41 @@ class read extends Controller
             foreach ($flights as $flight) {
             if (
             $flight->nama_item=="default") {
-            $view='update_produk';
-            $data='flight';
-            return \view($view,compact('flight'));
+                $komponen   =    $item = DB::table('komponen')->get();
+                $kondisi    =    $item = DB::table('kondisi_k')->get();
+                $lokasi =    $item = DB::table('lokasi_k')->get();
+                $kategory   =    $item = DB::table('katerori_k')->get();
+                $key    =    $item = DB::table('key_k')->get();
+                $run=[
+                    $komponen,$kondisi,$lokasi,$kategory,$key
+                ];
+                $view='update_produk';
+                $data='flight';
+                $final=[$flight,$data,$run];
+                // dd($final);
+            return \view($view,compact('final'));
         }else{
 
             $view='input_produk';}
 
         }
 
-    }return \view($view,compact('flights'));
     }
-    public function a()
+
+    return \view($view,compact('flights'));
+    }
+    // public function a()
+    // {
+    //     view('update_produk',compact($data));
+    // }
+
+    public function kategory(Request $request,$tabel,$view)
     {
-        view('update_produk',compact($data));
+        echo $view;
+        $item = DB::table($tabel)->get();
+        $data=[$item,$tabel];
+        return view($view,compact('data'));
+
     }
     public function out_view()
     {

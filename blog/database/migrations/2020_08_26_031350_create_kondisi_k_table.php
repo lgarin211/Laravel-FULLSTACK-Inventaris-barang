@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKomponenTable extends Migration
+class CreateKondisiKTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKomponenTable extends Migration
      */
     public function up()
     {
-        Schema::create('komponen', function (Blueprint $table) {
+        Schema::create('kondisi_k', function (Blueprint $table) {
             $table->id();
             $table->string('value');
             $table->string('key')->unique();
@@ -28,6 +28,6 @@ class CreateKomponenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('komponen');
+        Schema::dropIfExists('kondisi_k');
     }
 }
