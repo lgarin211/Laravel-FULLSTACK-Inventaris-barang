@@ -15,10 +15,36 @@ class update extends Controller
     $item_set =item_model::find($id);
     $item_set->kondisi_item =   $request->kondisi_item;
     $item_set->lokasi_item =    $request->lokasi_item;
+    $item_set->pos=0;
     $item_set->save();
     return redirect('/');
+}
+public function update_in(Request $request,$id)
+{
+
+
+    $item_set =item_model::find($id);
+    $item_set->kondisi_item =   $request->kondisi_item;
+    $item_set->lokasi_item =    $request->lokasi_item;
+    $item_set->pos=0;
+    $item_set->save();
+    return redirect('/');
+}
+
+public function update_Destroy(Request $request,$id,$stok)
+{
+if ($request->stok==$stok) {
+    $item_set =item_model::withTrashed()->where('id', $id)->get();
+}elseif ($request->stok>$stok) {
+    $item_set =item_model::find($id);
+    $item_set->banyak_item = $new;
+    $item_set->save();
+    return redirect('/');
+}
+
 
 }
+
 public function update(Request $request,$id)
 {
 // \dd($_POST);
@@ -30,17 +56,18 @@ public function update(Request $request,$id)
 // \dd($_POST);
 
 // \dd($request->lokasi_item);
-    if ($request->lok1==0) {
-        $request->lokasi_item= $request->lok2;
+$room=0;
+if ($request->lok1==0) {
+    $room== $request->lok2;
     }else {
-        $request->lokasi_item=$request->lok1;
+        $room==$request->lok1;
     }
 
     $item_set =item_model::find($id);
     $item_set->nama_item =      $request->nama_item;
     $item_set->kondisi_item =   $request->kondisi_item;
     $item_set->banyak_item =    $request->banyak_item;
-    $item_set->lokasi_item =    $request->lokasi_item;
+    $item_set->lokasi_item =   $request->lok1;
     $item_set->kategori =       $request->kategori;
     // $item_set->barcode=         $request->barcode;
     // dd($item_set);

@@ -21,7 +21,7 @@ class CreateItemTable extends Migration
             $table->string('lokasi_item')->nullable();
             $table->string('kategori')->nullable();
             $table->integer('pos')->nullable();
-            $table->integer('t_key')->nullable();
+            $table->string('t_key')->nullable();
             $table->string('barcode')->unique();
 
             $table->timestamps();

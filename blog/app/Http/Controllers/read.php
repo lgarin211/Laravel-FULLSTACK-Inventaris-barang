@@ -61,7 +61,8 @@ class read extends Controller
     }
     public function out_view()
     {
-        return view('find_item');
+        $flights = DB::table('item_out_table')->get();
+        return view('find_item',\compact('flights'));
     }
     public function data_out(Request $request)
     {

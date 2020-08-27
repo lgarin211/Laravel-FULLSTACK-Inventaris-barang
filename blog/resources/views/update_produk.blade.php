@@ -38,9 +38,11 @@
             <option value="{{$kategori->value}}">{{$kategori->value}}</option>
             @endforeach
         </select><hr>
-        <label for="NAMA PRODUK">KUANTITAS PRODUK</label>
-        <input type="number" name="banyak_item" class="text-center form-control" placeholder="{{'banyak item'}}" autofocus>
+        <label for="NAMA PRODUK">DESKRISI PRODUK</label>
+        <input type="text" name="banyak_item" class="text-center form-control" placeholder="masukan deskripsi" autofocus>
 <hr>
+<input type="hidden" name="banyak_item" value="1" >
+
          <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationDefault01">Default Lokasi Item</label>

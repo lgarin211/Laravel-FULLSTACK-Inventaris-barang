@@ -54,8 +54,9 @@
       @foreach ($flights as $itm)
       <tr>
         <tr>
-          <td >{{$itm->id}}</td>
-          <td >{{$itm->nama_item}}</td>
+
+          <td>{{$itm->id}}</td>
+          <td>{{$itm->nama_item}}</td>
           <td>{{$itm->kondisi_item}}</td>
           <td>{{$itm->banyak_item}}</td>
           <td>{{$itm->kategori}}</td>

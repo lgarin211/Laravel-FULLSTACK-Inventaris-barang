@@ -23,7 +23,7 @@ Route::get('/insert','read@index');
 Route::post('/insert','creat@creat');
 Route::get('/read_read','read@read');
 Route::put('/ui/{id}', 'update@update');
-Route::put('/keluar/{id}', 'update@update_out');
+Route::put('/keluar/{id}', 'creat@cread_out');
 
 Route::get('/out','read@out_view');
 Route::post('/out_find','read@data_out');
@@ -34,6 +34,10 @@ Route::get('/kondisi_t/{view}/{table}','read@kategory');
 Route::get('/lokasi_t/{view}/{table}','read@kategory');
 Route::get('/key_primary/{view}/{table}','read@kategory');
 Route::get('/komponen_t/{view}/{table}','read@kategory');
-
 Route::post('/make_C/{table}','creat@creat_key');
 
+Route::get('/pijam', function () {
+return view('find_pinjam');
+});
+Route::put('/pin_in', 'creat@cread_in');
+Route::put('/pin_out', 'creat@cread_out');
