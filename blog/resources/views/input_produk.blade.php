@@ -2,10 +2,11 @@
 @section('conten')
 
 <form action="/insert" method="POST">
-    <input type="text" name="barcode" autofocus>
+    <input type="text" class="form-control " name="barcode" autofocus>
     @csrf
-    <button type="submit">kirim</button>
+    <button type="submit" class="form-control btn-primary">kirim</button>
 </form>
+<br>
 
 <div class="container">
     {{-- <table class="table table-hover">

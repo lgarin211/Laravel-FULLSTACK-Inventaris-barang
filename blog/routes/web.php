@@ -39,5 +39,7 @@ Route::post('/make_C/{table}','creat@creat_key');
 Route::get('/pijam', function () {
 return view('find_pinjam');
 });
-Route::put('/pin_in', 'creat@cread_in');
-Route::put('/pin_out', 'creat@cread_out');
+Route::put('/pin_in', 'read@b');
+Route::put('/pin_out', 'read@a');
+Route::put('send_news/{id}/{pic}','update@update_out');
+Route::put('send_news2/{id}/{pic}','update@update_out');

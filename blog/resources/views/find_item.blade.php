@@ -1,10 +1,11 @@
 @extends('template.head')
 @section('conten')
 <form action="/out_find" method="post">
-<input type="text" name="barcode">
+<input type="text" class="form-control" name="barcode">
 @csrf
-<button type="submit">kirim</button>
+<button type="submit" class="form-control btn-primary" >kirim</button>
 </form>
+<br>
 
 
 <div class="card shadow mb-4">
