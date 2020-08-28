@@ -1,53 +1,137 @@
-<script>
-    window.onload = function () {
+@extends('template.head')
+@section('conten')
+<div class="container">
+    <div class="col-lg-6 mb-4">
 
-    //Better to construct options first and then pass it as a parameter
-    var options = {
-        animationEnabled: true,
-        title: {
-            text: "Mobile Phones Used For",
-            fontColor: "Peru"
-        },
-        axisY: {
-            tickThickness: 0,
-            lineThickness: 0,
-            valueFormatString: " ",
-            includeZero: true,
-            gridThickness: 0
-        },
-        axisX: {
-            tickThickness: 0,
-            lineThickness: 0,
-            labelFontSize: 18,
-            labelFontColor: "Peru"
-        },
-        data: [{
-            indexLabelFontSize: 26,
-            toolTipContent: "<span style=\"color:#62C9C3\">{indexLabel}:</span> <span style=\"color:#CD853F\"><strong>{y}</strong></span>",
-            indexLabelPlacement: "inside",
-            indexLabelFontColor: "white",
-            indexLabelFontWeight: 600,
-            indexLabelFontFamily: "Verdana",
-            color: "#62C9C3",
-            type: "bar",
-            dataPoints: [
-                { y: 21, label: "21%", indexLabel: "Video" },
-                { y: 25, label: "25%", indexLabel: "Dining" },
-                { y: 33, label: "33%", indexLabel: "Entertainment" },
-                { y: 36, label: "36%", indexLabel: "News" },
-                { y: 42, label: "42%", indexLabel: "Music" },
-                { y: 49, label: "49%", indexLabel: "Social Networking" },
-                { y: 50, label: "50%", indexLabel: "Maps/ Search" },
-                { y: 55, label: "55%", indexLabel: "Weather" },
-                { y: 61, label: "61%", indexLabel: "Games" }
-            ]
-        }]
-    };
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                </div>
+                <div class="card-body">
+                  {{-- <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div> --}}
+                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  {{-- <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div> --}}
+                </div>
+              </div>
 
-    $("#chartContainer").CanvasJSChart(options);
-    }
-    </script>
-    <div class="container">
-    <div id="chartContainer" style="height: 300px; max-width: 920px; margin: 0px auto;"></div></div>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+              <!-- Color System -->
+              <div class="row">
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                      Primary
+                      <div class="text-white-50 small">#4e73df</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                      Success
+                      <div class="text-white-50 small">#1cc88a</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-info text-white shadow">
+                    <div class="card-body">
+                      Info
+                      <div class="text-white-50 small">#36b9cc</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-warning text-white shadow">
+                    <div class="card-body">
+                      Warning
+                      <div class="text-white-50 small">#f6c23e</div>
+                    </div>
+                  </div>
+                </div>
+                {{-- <div class="col-lg-6 mb-4">
+                  <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-secondary text-white shadow">
+                    <div class="card-body">
+                      Secondary
+                      <div class="text-white-50 small">#858796</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-light text-black shadow">
+                    <div class="card-body">
+                      Light
+                      <div class="text-black-50 small">#f8f9fc</div>
+                    </div>
+                  </div>
+              </div> --}}
+              <div class="col-lg-6 mb-4">
+                <div class="card bg-dark text-white shadow">
+                  <div class="card-body">
+                      Dark
+                      <div class="text-white-50 small">#5a5c69</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+</div>
+<div class="col-md-12 ">
+    <div class="container col-md-5">
+        <div id="piechart" class="card"></div>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            // Load google charts
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Draw the chart and set the chart values
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+              ['Task', 'barang'],
+              ['Work', 1],
+              ['Friends', 1],
+              ['Eat', 1],
+              ['TV', 1],
+              ['Gym', 1],
+              ['Sleep', 1]
+            ]);
+
+              // Optional; add a title and set the width and height of the chart
+              var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+              // Display the chart inside the <div> element with id="piechart"
+              var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+              chart.draw(data, options);
+            }
+            </script>
+</div>
+</div>
+@endsection
+
