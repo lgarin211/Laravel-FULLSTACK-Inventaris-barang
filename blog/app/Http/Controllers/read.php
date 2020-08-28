@@ -20,6 +20,7 @@ $data='flights';
 if ($p) {
 return view('input_produk');
 } else {
+
 foreach ($flights as $flight) {
 if (
 $flight->nama_item=="default") {
@@ -40,7 +41,18 @@ return \view($view,compact('final'));
 $view='input_produk';}
 }
 }
-return \view($view,compact('flights'));
+$pin=DB::table('key_k')->get();
+$datasort=[];
+$a=0;
+foreach ($pin as $key => $pi) {
+    $key_k=DB::table('item')->where('t_key',$pi->key)->get();
+    if ($key_k->count() > 0) {
+        $datasort[$a]=$key_k;
+        $a++;}
+    }
+            // dd($datasort);
+    $data=[$flights,$datasort,$pin];
+return \view($view,compact('data'));
 }
 // public function a(Request $request)
 // { $item = DB::table('item')->where('barcode', $request->barcode)->first();

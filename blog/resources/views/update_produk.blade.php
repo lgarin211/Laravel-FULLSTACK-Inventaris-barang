@@ -12,7 +12,7 @@
 
         <label for="NAMA PRODUK">NAMA PRODUK</label>
 <div class="row">
-        <select class="col-md-1 text-center form-control" name="" id="">
+        <select class="col-md-1 text-center form-control" name="key_p" id="">
 <option value="">select your key</option>
 @foreach ($final[2][4] as $key)
 <option value="{{$key->value}}">{{$key->key}}</option>

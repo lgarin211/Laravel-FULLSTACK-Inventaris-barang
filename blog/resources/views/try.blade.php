@@ -56,12 +56,12 @@
             <li class="nav-item active">
               <a class="nav-link" href="{{ url('/insert') }}">Apps <span class="sr-only">(current)</span></a>
             </li>
-                    @else                    
+                    @else
             <li class="nav-item active">
               <a class="nav-link" href="{{ url('login') }}">LOGIN<span class="sr-only">(current)</span></a>
             </li>
                         @if (Route::has('register'))
-                    
+
             <li class="nav-item active">
               <a class="nav-link" href="{{ route('register') }}">REGISTRASI<span class="sr-only">(current)</span></a>
             </li>
@@ -69,7 +69,7 @@
                     @endauth
                 </div>
             @endif
-          
+
             <!-- <li class="nav-item active">
               <a class="nav-link" href="base.html">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -98,7 +98,7 @@
       <div class="carousel-item active">
         <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg> -->
 <img src="https://smkn1kepanjen.sch.id/web/wp-content/uploads/2019/05/RPL-760x490.jpg" alt=""width="100%" height="500px" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
- <!--  <iframe src="https://www.youtube.com/embed/eyWOh0EjXts"src="https://www.youtube.com/embed/eyWOh0EjXts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="500px" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"></iframe>      
+ <!--  <iframe src="https://www.youtube.com/embed/eyWOh0EjXts"src="https://www.youtube.com/embed/eyWOh0EjXts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="500px" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"></iframe>
  -->
 <div class="container">
           <div class="carousel-caption text-left">
@@ -119,7 +119,7 @@
       </div>
       <div class="carousel-item">
         <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg> -->
-        <img src="https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?size=626&ext=jpg" alt=""width="100%" height="500px" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><!-- 
+        <img src="https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?size=626&ext=jpg" alt=""width="100%" height="500px" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><!--
         <iframe src="https://www.youtube.com/embed/CD-E-LDc384" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="500px" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"></iframe>       -->
         <div class="container">
           <div class="carousel-caption text-right">

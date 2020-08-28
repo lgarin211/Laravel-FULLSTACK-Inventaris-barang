@@ -9,6 +9,105 @@
 <br>
 
 <div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_length" id="dataTable_length">
+                            <label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> entries</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div id="dataTable_filter" class="dataTables_filter">
+                            <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+              <thead>
+                <tr role="row">
+                    <th>value</th>
+                    <th>banyak</th>
+                    <th>key</th>
+                    <th>barcode</th>
+                    <th>status</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>value</th>
+                    <th>banyak</th>
+                    <th>key</th>
+                    <th>barcode</th>
+                    <th>status</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                  @php
+                      $a=0;
+                  @endphp
+          @foreach ($data[1] as $key=>$itm)
+          @php
+          $banyak=0;
+          @endphp
+
+      <tr><tr>
+        <td><select name="" id="">        @foreach ($itm as $it)
+            @php
+            $banyak=$banyak+$it->banyak_item;
+            @endphp
+                      <option value="">{{$it->nama_item}}</option>
+            @endforeach
+
+  </select></td>
+<td>
+        @foreach ($itm as $it)
+@endforeach
+{{$banyak}}
+</td>
+<td>{{$itm[0]->t_key}}</td>
+<td><select name="" id="">
+    @foreach ($itm as $it)
+    <option value="">{{$it->barcode}}</option>
+    @endforeach
+</select></td>
+<td><select name="" id="">
+    @foreach ($itm as $it)
+    <option value="">
+        @if ($it->pos==0)
+            {{'sedang di pinjam'}}
+        @else
+        {{'ready to use'}}
+        @endif
+    </option>
+    @endforeach
+</select></td>
+</tr>
+@endforeach
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+          </div>
+        </div>
+      </div>
+      </tbody>
+      </table></div>
+
+
     {{-- <table class="table table-hover">
     <thead>
       <tr>
@@ -24,7 +123,7 @@
 
 
 
-<div class="card shadow mb-4">
+{{-- <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
     </div>
@@ -37,8 +136,8 @@
                 <th>nama_item</th>
                 <th>kondisi_item</th>
                 <th>banyak_item</th>
+                <th>kategori item</th>
                 <th>lokasi_item</th>
-                <th>kategori date</th>
                 <th>barcode</th></tr>
           </thead>
           <tfoot>
@@ -47,12 +146,12 @@
                 <th>nama_item</th>
                 <th>kondisi_item</th>
                 <th>banyak_item</th>
-                <th>lokasi_item</th>
                 <th>kategori</th>
+                <th>lokasi_item</th>
                 <th>barcode</th></tr>
           </tfoot>
           <tbody>
-      @foreach ($flights as $itm)
+      @foreach ($data[0] as $itm)
       <tr>
         <tr>
 
@@ -74,6 +173,6 @@
     </div>
   </div>
   </tbody>
-  </table></div>
+  </table></div> --}}
 
 @endsection
