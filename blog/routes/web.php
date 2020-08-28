@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/insert');
+    return view('welcome');
 });
-
+Route::get('/try', function () {
+    return view('try');
+});
 
 Route::get('/insert','read@index');
 Route::post('/insert','creat@creat');
@@ -43,3 +45,11 @@ Route::put('/pin_in', 'read@b');
 Route::put('/pin_out', 'read@a');
 Route::put('send_news/{id}/{pic}','update@update_out');
 Route::put('send_news2/{id}/{pic}','update@update_out');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

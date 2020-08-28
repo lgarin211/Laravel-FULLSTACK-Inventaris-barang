@@ -99,9 +99,9 @@ Interface
 <li class="nav-item">
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-<a class="nav-link" href="charts.html">
+<a class="nav-link" href="/try">
 <i class="fas fa-fw fa-chart-area"></i>
-<span>Charts</span></a>
+<span>home web site</span></a>
 </li>
 </li>
 
