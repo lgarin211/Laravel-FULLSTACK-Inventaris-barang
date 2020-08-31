@@ -1,0 +1,27 @@
+body{
+    background: url(https://www.sbs.com.au/popasia/sites/sbs.com.au.popasia/files/styles/full/public/original.jpg?itok=8V4EiKRb&mtime=1474785172) no-repeat center; 
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+}
+.cont{
+max-width: 960px;
+ margin: 0 auto;
+ background: solid whitesmoke;
+ font-size: 24px;
+ padding: 25px;   
+ padding: 25px;
+}
+
+.paralax1{
+    background: url(https://64.media.tumblr.com/36f53e7bcfc3adf0449043ca4eb6494a/tumblr_pn6wp5OnvA1qgh6q4_1280.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+}
+.paralax{
+    background: url(https://i0.wp.com/aksesjambi.com/wp-content/uploads/2019/03/20190318_031449.jpg?fit=720%2C499&ssl=1) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+}
