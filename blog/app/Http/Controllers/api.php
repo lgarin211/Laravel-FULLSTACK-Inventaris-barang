@@ -10,7 +10,7 @@ class api extends Controller
     public function one(Type $var = null)
     {
         # code...
-        $v='transformers';
+        $v='transformersg';
         $data=Http::get('http://www.omdbapi.com/?apikey=2b89c513&s='.$v)->json();
     // dd($data);
     foreach ($data['Search'] as $itm) {
