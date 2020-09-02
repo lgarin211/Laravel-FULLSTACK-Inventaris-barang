@@ -18,6 +18,16 @@ $warna='success';
     }elseif ($n<80) {
         $warna='primary';
     }
+    $comen1='';
+    $comen2='';
+    if ($n==0) {
+        $comen1='<!--';
+        $comen2='-->';
+    }
+
+@endphp
+@php
+echo $comen1;
 @endphp
                 <h4 class="small font-weight-bold">{{$data[0][$key]}} <span class="float-right">{{$n}}</span></h4>
                   <div class="progress mb-4">
@@ -26,6 +36,9 @@ $warna='success';
                       @endphp
                     <div class="progress-bar bg-{{$warna}} progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{$per}}%" aria-valuenow="{{$per}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
+                  @php
+                  echo $comen2;
+                  @endphp
 @endforeach
                 </div>
               </div>

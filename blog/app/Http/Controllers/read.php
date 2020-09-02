@@ -82,7 +82,7 @@ return redirect('/pijam')->with('status', 'item sudah di pinjam');;
 
 public function kategory(Request $request,$tabel,$view)
 {
-echo $view;
+// echo $view;
 $item = DB::table($tabel)->get();
 $data=[$item,$tabel];
 return view($view,compact('data'));
