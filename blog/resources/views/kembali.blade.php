@@ -13,11 +13,11 @@ $kata="form pengembalian barang";
 <h1>{{ $kata }}</h1>
 <div class="form-group">
 <label for="lokasi">kondisi barang</label>
-<input type="text" class="form-control" id="lokasi" name="kondisi_item" placeholder="max {{$data[0]->banyak_item}}" value="{{$data[0]->kondisi_item}}">
+<input required type="text" class="form-control" id="lokasi" name="kondisi_item" placeholder="max {{$data[0]->banyak_item}}" value="{{$data[0]->kondisi_item}}">
 </div>
 <div class="form-group">
 <label for="lokasi">penerima</label>
-<input type="text" class="form-control" id="lokasi" name="lokasi_out" placeholder="" >
+<input required type="text" class="form-control" id="lokasi" name="lokasi_out" placeholder="" >
 </div>
 @csrf
 <button type="submit" class="btn btn-primary btn-success">update data</button>

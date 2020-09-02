@@ -11,15 +11,15 @@ $data="form peminjaman barang";
 <h1>pinjam</h1>
 <form action="/pin_out" method="post">
 @method('PUT')
-<input type="text" class="form-control "name="barcode">
+<input required type="text" class="form-control "name="barcode">
 @csrf
 <button type="submit"class="form-control btn-primary">kirim</button>
 </form>
 
 <h1>kembali</h1>
-<form action="/pin_in" method="post">
+<form  action="/pin_in" method="post">
 @method('PUT')
-<input type="text" class="form-control "name="barcode">
+<input required type="text" class="form-control "name="barcode">
 @csrf
 <button type="submit"class="form-control btn-primary">kirim</button>
 </form>

@@ -18,13 +18,13 @@
 <option value="{{$key->value}}">{{$key->key}}</option>
 @endforeach
 </select>
-<input type="text" name="nama_item" class="text-center col-md-11 form-control" placeholder="{{'nama item'}}" autofocus>
+<input required type="text" name="nama_item" class="text-center col-md-11 form-control" placeholder="{{'nama item'}}" autofocus>
 </div>
 <hr>
 <label for="NAMA PRODUK">DESKRISI PRODUK</label>
-<input type="text" name="deksripsi" class="text-center form-control" placeholder="masukan deskripsi" autofocus>
+<input required type="text" name="deksripsi" class="text-center form-control" placeholder="masukan deskripsi" autofocus>
 <hr>
-<input type="hidden" name="banyak_item" value="1" >
+<input required type="hidden" name="banyak_item" value="1" >
 <label for="NAMA PRODUK">KONDISI PRODUK</label>
 <select name="kondisi_item" class="form-control">
 <option>pilih Kondisi Barang<hr></option>
