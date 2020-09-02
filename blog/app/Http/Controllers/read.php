@@ -105,8 +105,8 @@ public function data_out(Request $request)
 $item = DB::table('item')->where('barcode', $request->barcode)->first();
 if ($item==null) {return redirect('/out')->with('status','barang belum terinput atau sudah keluar');}
 else{
-    $d = DB::table('item_out')->where('barcode', $request->barcode)->first();
-    if ($d==null) {
+    $d = DB::table('item_out_table')->where('barcode', $request->barcode)->first();
+    if (!$d==null) {
         return redirect('/out')->with('status', 'barang sudah keluar');
     } else {
         return \view('barang_keluar', compact('item'));
