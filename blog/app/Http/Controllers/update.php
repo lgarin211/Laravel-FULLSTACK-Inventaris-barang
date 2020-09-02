@@ -62,6 +62,7 @@ $item_set->banyak_item =    $request->banyak_item;
 $item_set->lokasi_item =   $request->lok1;
 $item_set->kategori =       $request->kategori;
 $item_set->t_key =       $request->key_p;
+$item_set->deks=$request->deksripsi;
 // dd($item_set);
 $item_set->save();
 return redirect('/read_read');

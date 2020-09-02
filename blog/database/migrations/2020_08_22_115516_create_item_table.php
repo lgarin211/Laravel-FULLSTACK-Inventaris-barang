@@ -23,7 +23,7 @@ class CreateItemTable extends Migration
             $table->integer('pos')->nullable();
             $table->string('t_key')->nullable();
             $table->string('barcode')->unique();
-
+            $table->string('deks')->nullable();
             $table->timestamps();
         });
     }

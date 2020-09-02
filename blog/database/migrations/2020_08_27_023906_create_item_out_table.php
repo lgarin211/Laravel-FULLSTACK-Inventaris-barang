@@ -21,6 +21,7 @@ class CreateItemOuttable extends Migration
             $table->string('lokasi_item');
             $table->string('kategori');
             $table->string('barcode');
+            $table->string('deks');
             $table->timestamps(); });
     }
 

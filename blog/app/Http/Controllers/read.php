@@ -13,45 +13,33 @@ return view('base');
 # code...
 }
 public function read()
-{$flights=item_model::all();
-// var_dump($flights[0]['nama_item']);
-$p=$flights==null;
-$data='flights';
-if ($p) {
-return view('input_produk');
+{$flights   =   item_model::all();
+$p          =   $flights==null;
+$data       =   'flights';
+if ($flights->count()==0) {
+return view('input_produka_a');
 } else {
-
 foreach ($flights as $flight) {
-if (
-$flight->nama_item=="default") {
+if ($flight->nama_item=="default") {
 $komponen   =    $item = DB::table('komponen')->get();
 $kondisi    =    $item = DB::table('kondisi_k')->get();
-$lokasi =    $item = DB::table('lokasi_k')->get();
+$lokasi     =    $item = DB::table('lokasi_k')->get();
 $kategory   =    $item = DB::table('katerori_k')->get();
-$key    =    $item = DB::table('key_k')->get();
-$run=[
-$komponen,$kondisi,$lokasi,$kategory,$key
-];
-$view='update_produk';
-$data='flight';
-$final=[$flight,$data,$run];
-// dd($final);
-return \view($view,compact('final'));
-}else{
-$view='input_produk';}
-}
-}
-$pin=DB::table('key_k')->get();
-$datasort=[];
-$a=0;
+$key        =    $item = DB::table('key_k')->get();
+$run        =    [$komponen,$kondisi,$lokasi,$kategory,$key];
+$view       =    'update_produk';
+$data       =    'flight';
+$final      =    [$flight,$data,$run];
+return \view($view,compact('final'));}
+else{$view='input_produk';}}}
+$pin        =    DB::table('key_k')->get();
+$datasort   =    [];
+$a          =    0;
 foreach ($pin as $key => $pi) {
-    $key_k=DB::table('item')->where('t_key',$pi->key)->get();
-    if ($key_k->count() > 0) {
-        $datasort[$a]=$key_k;
-        $a++;}
-    }
-            // dd($datasort);
-    $data=[$flights,$datasort,$pin];
+$key_k      =    DB::table('item')->where('t_key',$pi->key)->get();
+if ($key_k->count() > 0) {
+$datasort[$a]=$key_k;$a++;}}
+$data       =   [$flights,$datasort,$pin];
 return \view($view,compact('data'));
 }
 // public function a(Request $request)
@@ -73,7 +61,7 @@ $kata='barang tidak di pinjam';
 $data=[$item,$kata];
 $request->session()->flash('pesan', $data[1]);
 // return view('kembali',compact('data'));
-return redirect('/pijam')->with('status', 'item tidak di pinjam');;
+return redirect('/pijam')->with('status', 'item tidak di pinjam');
 }
 }
 
@@ -103,15 +91,28 @@ return view($view,compact('data'));
 public function out_view()
 {
 $flights = DB::table('item_out_table')->get();
-return view('find_item',\compact('flights'));
+if ($flights->count()>0) {
+    return view('find_item',\compact('flights'));}else{
+        return view('find_item_a');
+    }
+
+
 }
 
 public function data_out(Request $request)
 {
 
 $item = DB::table('item')->where('barcode', $request->barcode)->first();
+if ($item==null) {return redirect('/out')->with('status','barang belum terinput atau sudah keluar');}
+else{
+    $d = DB::table('item_out')->where('barcode', $request->barcode)->first();
+    if ($d==null) {
+        return redirect('/out')->with('status', 'barang sudah keluar');
+    } else {
+        return \view('barang_keluar', compact('item'));
+    }
+}
 
-return \view('barang_keluar',compact('item'));
 }
 
 }

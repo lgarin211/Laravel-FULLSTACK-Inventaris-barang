@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\update;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Stmt\Return_;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@dataread');
 Route::get('/try', function () {
     return view('try');
 });
@@ -54,4 +54,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/api', 'api@one');
+// Route::get('/api', 'api@one');
+
+// Route::get('/pin', function () {
+//     return view('cari');
+// });

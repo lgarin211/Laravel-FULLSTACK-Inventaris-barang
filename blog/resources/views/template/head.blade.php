@@ -195,6 +195,9 @@ Interface
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
+    @if (session('status'))
+    <h1 class="btn text-center btn-danger">{{session('status')}}</h1>
+    @endif
 
 @yield('conten')
 
