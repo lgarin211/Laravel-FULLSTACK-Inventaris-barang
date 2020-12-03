@@ -64,11 +64,11 @@
           @endphp
 
       <tr><tr>
-        <td><select name="" id="">        @foreach ($itm as $it)
+        <td><select name="" id="mug1">        @foreach ($itm as $it)
             @php
             $banyak=$banyak+$it->banyak_item;
             @endphp
-                      <option value="">{{$it->nama_item}}</option>
+                      <option value="" id="{{$it->id.'ssh'}}">{{$it->nama_item}}</option>
             @endforeach
 
   </select></td>
@@ -78,14 +78,14 @@
 {{$banyak}}
 </td>
 <td>{{$itm[0]->t_key}}</td>
-<td><select name="" id="">
+<td><select name="" id="mug2">
     @foreach ($itm as $it)
-    <option value="">{{$it->barcode}}</option>
+    <option value="" id="{{$it->id.'ssh'}}">{{$it->barcode}}</option>
     @endforeach
 </select></td>
-<td><select name="" id="">
+<td><select name="" id="mug3">
     @foreach ($itm as $it)
-    <option value="">
+    <option value="" id="{{$it->id.'ssh'}}">
         @if ($it->pos==0)
             {{'sedang di pinjam'}}
         @else
@@ -152,9 +152,7 @@
           </tfoot>
           <tbody>
       @foreach ($data[0] as $itm)
-      <tr>
         <tr>
-
           <td>{{$itm->id}}</td>
           <td>{{$itm->nama_item}}</td>
           <td>{{$itm->kondisi_item}}</td>
@@ -174,5 +172,13 @@
   </div>
   </tbody>
   </table></div> --}}
+
+  <script>
+      function ds(key) {
+
+
+      }
+
+  </script>
 
 @endsection

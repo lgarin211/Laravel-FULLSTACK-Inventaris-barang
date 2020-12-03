@@ -36,10 +36,12 @@ $pin        =    DB::table('key_k')->get();
 $datasort   =    [];
 $a          =    0;
 foreach ($pin as $key => $pi) {
-$key_k      =    DB::table('item')->where('t_key',$pi->key)->get();
+$key_k      =    DB::table('item')->where('t_key',$pi->value)->get();
 if ($key_k->count() > 0) {
-$datasort[$a]=$key_k;$a++;}}
+$datasort[$a]=$key_k;$a++;}
+}
 $data       =   [$flights,$datasort,$pin];
+// \dd($data);
 return \view($view,compact('data'));
 }
 // public function a(Request $request)
