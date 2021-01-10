@@ -63,6 +63,7 @@
                                     $banyak=0;
                                     @endphp
 
+<<<<<<< HEAD
                                     <tr>
                                     <tr>
                                         <td>
@@ -126,6 +127,45 @@
                                                 </ul>
                                             </div>
 
+=======
+      <tr><tr>
+        <td><select name="" id="mug1">        @foreach ($itm as $it)
+            @php
+            $banyak=$banyak+$it->banyak_item;
+            @endphp
+                      <option value="" id="{{$it->id.'ssh'}}">{{$it->nama_item}}</option>
+            @endforeach
+
+  </select></td>
+<td>
+        @foreach ($itm as $it)
+@endforeach
+{{$banyak}}
+</td>
+<td>{{$itm[0]->t_key}}</td>
+<td><select name="" id="mug2">
+    @foreach ($itm as $it)
+    <option value="" id="{{$it->id.'ssh'}}">{{$it->barcode}}</option>
+    @endforeach
+</select></td>
+<td><select name="" id="mug3">
+    @foreach ($itm as $it)
+    <option value="" id="{{$it->id.'ssh'}}">
+        @if ($it->pos==0)
+            {{'sedang di pinjam'}}
+        @else
+        {{'ready to use'}}
+        @endif
+    </option>
+    @endforeach
+</select></td>
+</tr>
+@endforeach
+            </tbody>
+            </table>
+        </div>
+    </div>
+>>>>>>> 0c6b024bf8792fbc92b858e9f56e470960b5f385
 
                                         </td>
                                     </tr>
@@ -199,9 +239,7 @@
           </tfoot>
           <tbody>
       @foreach ($data[0] as $itm)
-      <tr>
         <tr>
-
           <td>{{$itm->id}}</td>
     <td>{{$itm->nama_item}}</td>
     <td>{{$itm->kondisi_item}}</td>
@@ -216,6 +254,7 @@
 </div>
 </div>
 
+<<<<<<< HEAD
 </div>
 </div>
 </div>
@@ -223,4 +262,20 @@
 </table>
 </div> --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+=======
+      </div>
+    </div>
+  </div>
+  </tbody>
+  </table></div> --}}
+
+  <script>
+      function ds(key) {
+
+
+      }
+
+  </script>
+
+>>>>>>> 0c6b024bf8792fbc92b858e9f56e470960b5f385
 @endsection
