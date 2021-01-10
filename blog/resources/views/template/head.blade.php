@@ -44,10 +44,18 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-<a class="nav-link" href="/">
-<i class="fas fa-fw fa-tachometer-alt"></i>
-<span>Dashboard</span></a>
-</li>
+    <a class="nav-link" href="/">
+    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <span>Inventaris</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+<li class="nav-item">
+    <a class="nav-link" href="/komputer">
+    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <span>Komputer</span></a>
+    </li>
+
 
 <!-- Divider -->
 <hr class="sidebar-divider">

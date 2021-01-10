@@ -68,4 +68,10 @@ DB::table($tabel)->insert(
 );
 return redirect('/');
 }
+            //komputer
+public function kirimpc(Request $request)
+{
+    echo 'most';
+    dd($_POST);
+}
 }

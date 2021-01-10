@@ -50,6 +50,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -59,3 +60,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/pin', function () {
 //     return view('cari');
 // });
+
+
+        //Komputer
+Route::get('/komputer', 'read@komputer');
+Route::get('/buatpc', function () {
+return view('komputer.make');
+});
+Route::post('/kirimpc', 'creat@kirimpc');

@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/api" method="GET">
-    <input name="a" type="text">
-    <button type="submit">cari</button>
+    <form action="/kirimpc" method="post">
+    <input type="text" name="barcode">
+<button type="submit">kirim</button>
 </form>
 
 </body>

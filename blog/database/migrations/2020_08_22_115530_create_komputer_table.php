@@ -20,6 +20,7 @@ class CreateKomputerTable extends Migration
             $table->string('SYMT')->nullable();
             $table->string('Prosesor')->nullable();
             $table->string('TPS')->nullable();
+            $table->string('Komputer_name')->nullable();
             $table->string('Komputer_barcode')->unique();
             $table->timestamps();
         });
