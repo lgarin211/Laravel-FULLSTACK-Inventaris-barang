@@ -6,7 +6,7 @@
 $data="form barang keluar";
 @endphp
 
-<form action="/keluar/{{$item->id}}" method="POST">
+<form action="{{url('/')}}/keluar/{{$item->id}}" method="POST">
     <h1>produk barcode is: {{ $item->barcode }}</h1>
     @method('PUT')
     <h1>{{ $data }}</h1>

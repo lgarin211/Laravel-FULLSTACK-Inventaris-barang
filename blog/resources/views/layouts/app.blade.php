@@ -22,25 +22,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<<<<<<< HEAD
     <!-- bootstrap 5 style -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
-=======
-    <style>
-.bg-dam{ 
-background-image:url('https://images.pexels.com/photos/1236044/pexels-photo-1236044.jpeg?cs=srgb&dl=empty-hallway-with-lights-turned-on-1236044.jpg&fm=jpg'); 
-background-size:cover; 
-background-attachment: fixed; 
-
-} 
-
-    </style>
-</head>
-<body class="bg-dam">
->>>>>>> 0c6b024bf8792fbc92b858e9f56e470960b5f385
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -75,14 +61,8 @@ background-attachment: fixed;
                                 {{ Auth::user()->name }}
                             </a>
 
-<<<<<<< HEAD
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-=======
-                                <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
->>>>>>> 0c6b024bf8792fbc92b858e9f56e470960b5f385
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>

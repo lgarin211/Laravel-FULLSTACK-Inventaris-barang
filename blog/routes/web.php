@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\read;
 use App\Http\Controllers\update;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,33 +18,33 @@ use PhpParser\Node\Stmt\Return_;
 |
 */
 
-Route::get('/', 'HomeController@dataread');
+Route::get('/', [HomeController::class, 'dataread']);
 Route::get('/try', function () {
     return view('try');
 });
 
-Route::get('/insert','read@index');
+Route::get('/insert',[read::class,'index']);
 Route::post('/insert','creat@creat');
-Route::get('/read_read','read@read');
+Route::get('/read_read',[read::class,'read']);
 Route::put('/ui/{id}', 'update@update');
 Route::put('/keluar/{id}', 'creat@cread_out');
 
-Route::get('/out','read@out_view');
-Route::post('/out_find','read@data_out');
+Route::get('/out',[read::class,'out_view']);
+Route::post('/out_find',[read::class,'data_out']);
 
-
-Route::get('/kategori_t/{view}/{table}','read@kategory');
-Route::get('/kondisi_t/{view}/{table}','read@kategory');
-Route::get('/lokasi_t/{view}/{table}','read@kategory');
-Route::get('/key_primary/{view}/{table}','read@kategory');
-Route::get('/komponen_t/{view}/{table}','read@kategory');
+Route::get('/kategori_t/{view}/{table}',[read::class,'kategory']);
+Route::get('/kondisi_t/{view}/{table}',[read::class,'kategory']);
+Route::get('/lokasi_t/{view}/{table}',[read::class,'kategory']);
+Route::get('/key_primary/{view}/{table}',[read::class,'kategory']);
+Route::get('/komponen_t/{view}/{table}',[read::class,'kategory']);
 Route::post('/make_C/{table}','creat@creat_key');
 
 Route::get('/pijam', function () {
 return view('find_pinjam');
 });
-Route::put('/pin_in', 'read@b');
-Route::put('/pin_out', 'read@a');
+
+Route::put('/pin_in', [read::class,'b']);
+Route::put('/pin_out', [read::class,'a']);
 Route::put('send_news/{id}/{pic}','update@update_out');
 Route::put('send_news2/{id}/{pic}','update@update_out');
 
@@ -63,7 +65,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
         //Komputer
-Route::get('/komputer', 'read@komputer');
+Route::get('/komputer', [read::class,'komputer']);
 Route::get('/buatpc', function () {
 return view('komputer.make');
 });

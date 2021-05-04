@@ -1,7 +1,7 @@
 @extends('template.head')
 @section('conten')
 
-<form action="/insert" method="POST">
+<form action="{{url('/')}}/insert" method="POST">
     <input required type="text" class="form-control " name="barcode" autofocus>
     @csrf
     <button type="submit" class="form-control btn-primary">kirim</button>
@@ -19,7 +19,8 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div class="dataTables_length" id="dataTable_length">
-                                <label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                                <label>Show <select name="dataTable_length" aria-controls="dataTable"
+                                        class="custom-select custom-select-sm form-control form-control-sm">
                                         <option value="10">10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -29,16 +30,18 @@
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div id="dataTable_filter" class="dataTables_filter">
-                                <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label>
+                                <label>Search:<input type="search" class="form-control form-control-sm" placeholder=""
+                                        aria-controls="dataTable"></label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                                role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <thead>
                                     <tr role="row">
-                                        <th>value</th>
+                                        <th>Nama Produk</th>
                                         <th>banyak</th>
                                         <th>key</th>
                                         <th>barcode</th>
@@ -47,7 +50,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>value</th>
+                                        <th>Nama Produk</th>
                                         <th>banyak</th>
                                         <th>key</th>
                                         <th>barcode</th>
@@ -63,12 +66,14 @@
                                     $banyak=0;
                                     @endphp
 
-<<<<<<< HEAD
                                     <tr>
                                     <tr>
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" id="binpageitem<?= ($keyles) + 1 ?>" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button class="btn btn-secondary dropdown-toggle"
+                                                    id="binpageitem<?= ($keyles) + 1 ?>" type="button"
+                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
                                                     item
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -76,8 +81,10 @@
                                                     @php
                                                     $banyak=$banyak+$it->banyak_item;
                                                     @endphp
-                                                    <li onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
-                                                        <button id="dosone<?= ($keyles) + 1 ?><?= $it->id; ?>" class="dropdown-item">{{$it->nama_item}}</button>
+                                                    <li
+                                                        onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
+                                                        <button id="dosone<?= ($keyles) + 1 ?><?= $it->id; ?>"
+                                                            class="dropdown-item">{{$it->nama_item}}</button>
                                                     </li>
                                                     @endforeach
                                                 </ul>
@@ -91,7 +98,10 @@
                                         <td>{{$itm[0]->t_key}}</td>
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" id="binpagebarcode<?= ($keyles) + 1 ?>" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button class="btn btn-secondary dropdown-toggle"
+                                                    id="binpagebarcode<?= ($keyles) + 1 ?>" type="button"
+                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
                                                     Barcode
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -99,8 +109,10 @@
                                                     @php
                                                     $banyak=$banyak+$it->banyak_item;
                                                     @endphp
-                                                    <li onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
-                                                        <button id="dostwo<?= ($keyles) + 1 ?><?= $it->id; ?>" class="dropdown-item">{{$it->barcode}}</button>
+                                                    <li
+                                                        onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
+                                                        <button id="dostwo<?= ($keyles) + 1 ?><?= $it->id; ?>"
+                                                            class="dropdown-item">{{$it->barcode}}</button>
                                                     </li>
                                                     @endforeach
                                                 </ul>
@@ -108,15 +120,20 @@
                                         <td>
 
                                             <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" id="binpagekondisi<?= ($keyles) + 1 ?>" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button class="btn btn-secondary dropdown-toggle"
+                                                    id="binpagekondisi<?= ($keyles) + 1 ?>" type="button"
+                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
                                                     Kondisi
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     @foreach ($itm as $it)
                                                     @php
                                                     @endphp
-                                                    <li onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
-                                                        <button id="dostree<?= ($keyles) + 1 ?><?= $it->id; ?>" class="dropdown-item"> @if ($it->pos==0)
+                                                    <li
+                                                        onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
+                                                        <button id="dostree<?= ($keyles) + 1 ?><?= $it->id; ?>"
+                                                            class="dropdown-item"> @if ($it->pos==0)
                                                             {{'sedang di pinjam'}}
                                                             @else
                                                             {{'ready to use'}}
@@ -127,50 +144,11 @@
                                                 </ul>
                                             </div>
 
-=======
-      <tr><tr>
-        <td><select name="" id="mug1">        @foreach ($itm as $it)
-            @php
-            $banyak=$banyak+$it->banyak_item;
-            @endphp
-                      <option value="" id="{{$it->id.'ssh'}}">{{$it->nama_item}}</option>
-            @endforeach
-
-  </select></td>
-<td>
-        @foreach ($itm as $it)
-@endforeach
-{{$banyak}}
-</td>
-<td>{{$itm[0]->t_key}}</td>
-<td><select name="" id="mug2">
-    @foreach ($itm as $it)
-    <option value="" id="{{$it->id.'ssh'}}">{{$it->barcode}}</option>
-    @endforeach
-</select></td>
-<td><select name="" id="mug3">
-    @foreach ($itm as $it)
-    <option value="" id="{{$it->id.'ssh'}}">
-        @if ($it->pos==0)
-            {{'sedang di pinjam'}}
-        @else
-        {{'ready to use'}}
-        @endif
-    </option>
-    @endforeach
-</select></td>
-</tr>
-@endforeach
-            </tbody>
-            </table>
-        </div>
-    </div>
->>>>>>> 0c6b024bf8792fbc92b858e9f56e470960b5f385
 
                                         </td>
                                     </tr>
                                     <script>
-                                        function das<?= ($keyles)+1 ?>(a) {
+                                        function das<?= ($keyles) + 1 ?>(a) {
                                             q = 'dosone' + a
                                             q1 = 'dostwo' + a
                                             q2 = 'dostree' + a
@@ -254,28 +232,13 @@
 </div>
 </div>
 
-<<<<<<< HEAD
 </div>
 </div>
 </div>
 </tbody>
 </table>
 </div> --}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-=======
-      </div>
-    </div>
-  </div>
-  </tbody>
-  </table></div> --}}
-
-  <script>
-      function ds(key) {
-
-
-      }
-
-  </script>
-
->>>>>>> 0c6b024bf8792fbc92b858e9f56e470960b5f385
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+</script>
 @endsection

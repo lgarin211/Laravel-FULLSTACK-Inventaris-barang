@@ -3,46 +3,34 @@
 <div class="container">
     <div class="col-lg mb-4">
 
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-
-                  <h6 class="m-0 font-weight-bold text-primary">Daftar Barang</h6>
-                </div>
-                <div class="card-body">
-@foreach ($data[1] as $key=>$n)
-@php
-$warna='success';
-    if ($n<10) {
-        $warna='danger';
-    }elseif ($n<80) {
-        $warna='primary';
-    }
-    $comen1='';
-    $comen2='';
-    if ($n==0) {
-        $comen1='<!--';
-        $comen2='-->';
-    }
-
-@endphp
-@php
-echo $comen1;
-@endphp
-                <h4 class="small font-weight-bold">{{$data[0][$key]}} <span class="float-right">{{$n}}</span></h4>
-                  <div class="progress mb-4">
-                      @php
-                          $per=$n*2;
-                      @endphp
-                    <div class="progress-bar bg-{{$warna}} progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{$per}}%" aria-valuenow="{{$per}}" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  @php
-                  echo $comen2;
-                  @endphp
-@endforeach
-                </div>
-              </div>
+        <!-- Project Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 row">
+                <h6 class="m-0 font-weight-bold text-primary col-sm-10">Daftar Barang</h6>
+                <h6 class="m-0 font-weight-bold text-success col-sm-2"><a href="?pdf={{ Auth::user()->id }}">PDF</a></h6>
             </div>
+            <div class="card-body">
+                @foreach ($data[1] as $key=>$n)
+                @php
+                $warna='success';
+                if ($n<10) { $warna='danger' ; }elseif ($n<80) { $warna='primary' ; } $comen1='' ; $comen2='' ; if
+                    ($n==0) { $comen1='<!--' ; $comen2='-->' ; } @endphp @php echo $comen1; @endphp <h4
+                    class="small font-weight-bold">{{$data[0][$key]}} <span class="float-right">{{$n}}</span></h4>
+                    <div class="progress mb-4">
+                        @php
+                        $per=$n*2;
+                        @endphp
+                        <div class="progress-bar bg-{{$warna}} progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width: {{$per}}%" aria-valuenow="{{$per}}" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    @php
+                    echo $comen2;
+                    @endphp
+                    @endforeach
+            </div>
+        </div>
+    </div>
 </div>
 {{-- <div class="col-md-12 ">
     <div class="container col-md-5">
@@ -76,4 +64,3 @@ echo $comen1;
 </div>
 </div> --}}
 @endsection
-

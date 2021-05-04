@@ -4,7 +4,7 @@
 @php
 $data="form peminjaman barang";
 @endphp
-<form action="/send_news/{{$item->id}}/0" method="POST">
+<form action="{{url('/')}}/send_news/{{$item->id}}/0" method="POST">
     <h1>produk barcode is: {{ $item->barcode }}</h1>
     @method('PUT')
     <h1>{{ $data }}</h1>

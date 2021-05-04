@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/api" method="GET">
+    <form action="{{url('')}}/api" method="GET">
     <input name="a" type="text">
     <button type="submit">cari</button>
 </form>

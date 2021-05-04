@@ -9,7 +9,7 @@ $data="form peminjaman barang";
 @endif
 
 <h1>pinjam</h1>
-<form action="/pin_out" method="post">
+<form action="{{url('/')}}/pin_out" method="post">
 @method('PUT')
 <input required type="text" class="form-control "name="barcode">
 @csrf
@@ -17,7 +17,7 @@ $data="form peminjaman barang";
 </form>
 
 <h1>kembali</h1>
-<form  action="/pin_in" method="post">
+<form  action="{{url('/')}}/pin_in" method="post">
 @method('PUT')
 <input required type="text" class="form-control "name="barcode">
 @csrf
