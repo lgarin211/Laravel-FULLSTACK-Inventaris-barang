@@ -61,7 +61,8 @@ Route::put('send_news2/{id}/{pic}', 'update@update_out');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {return redirect('/');})->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Auth::routes();
