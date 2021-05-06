@@ -20,7 +20,7 @@ use PhpParser\Node\Stmt\Return_;
 
 Route::get('/', function () {
     if (!empty(Auth::user()->id)) {
-        [HomeController::class, 'dataread'];
+        ([HomeController::class, 'dataread']);
     } else {
         return view('wek');
     }
