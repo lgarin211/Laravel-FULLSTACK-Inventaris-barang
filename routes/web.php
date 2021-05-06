@@ -20,11 +20,15 @@ use PhpParser\Node\Stmt\Return_;
 
 Route::get('/', function () {
     if (!empty(Auth::user()->id)) {
-        ([HomeController::class, 'dataread']);
+        return redirect('/das');
     } else {
         return view('wek');
     }
 });
+
+Route::get('/das', [HomeController::class, 'dataread']);
+
+
 
 Route::get('/try', function () {
     return view('wek');
