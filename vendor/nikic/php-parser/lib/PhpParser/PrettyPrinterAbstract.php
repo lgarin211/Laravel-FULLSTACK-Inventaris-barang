@@ -66,7 +66,7 @@ abstract class PrettyPrinterAbstract
         BinaryOp\BooleanAnd::class     => [120, -1],
         BinaryOp\BooleanOr::class      => [130, -1],
         BinaryOp\Coalesce::class       => [140,  1],
-        Expr\Ternary::class            => [150, -1],
+        Expr\Ternary::class            => [150,  0],
         // parser uses %left for assignments, but they really behave as %right
         Expr\Assign::class             => [160,  1],
         Expr\AssignRef::class          => [160,  1],
@@ -756,7 +756,7 @@ abstract class PrettyPrinterAbstract
 
                 $itemStartPos = $origArrItem->getStartTokenPos();
                 $itemEndPos = $origArrItem->getEndTokenPos();
-                \assert($itemStartPos >= 0 && $itemEndPos >= 0);
+                \assert($itemStartPos >= 0 && $itemEndPos >= 0 && $itemStartPos >= $pos);
 
                 $origIndentLevel = $this->indentLevel;
                 $lastElemIndentLevel = $this->origTokens->getIndentationBefore($itemStartPos) + $indentAdjustment;
@@ -767,16 +767,25 @@ abstract class PrettyPrinterAbstract
                 $commentStartPos = $origComments ? $origComments[0]->getStartTokenPos() : $itemStartPos;
                 \assert($commentStartPos >= 0);
 
-                $commentsChanged = $comments !== $origComments;
-                if ($commentsChanged) {
-                    // Remove old comments
-                    $itemStartPos = $commentStartPos;
+                if ($commentStartPos < $pos) {
+                    // Comments may be assigned to multiple nodes if they start at the same position.
+                    // Make sure we don't try to print them multiple times.
+                    $commentStartPos = $itemStartPos;
+                }
+
+                if ($skipRemovedNode) {
+                    if ($isStmtList && $this->origTokens->haveBracesInRange($pos, $itemStartPos)) {
+                        // We'd remove the brace of a code block.
+                        // TODO: Preserve formatting.
+                        $this->setIndentLevel($origIndentLevel);
+                        return null;
+                    }
+                } else {
+                    $result .= $this->origTokens->getTokenCode(
+                        $pos, $commentStartPos, $indentAdjustment);
                 }
 
                 if (!empty($delayedAdd)) {
-                    $result .= $this->origTokens->getTokenCode(
-                        $pos, $commentStartPos, $indentAdjustment);
-
                     /** @var Node $delayedAddNode */
                     foreach ($delayedAdd as $delayedAddNode) {
                         if ($insertNewline) {
@@ -795,25 +804,16 @@ abstract class PrettyPrinterAbstract
                         }
                     }
 
-                    $result .= $this->origTokens->getTokenCode(
-                        $commentStartPos, $itemStartPos, $indentAdjustment);
-
                     $delayedAdd = [];
-                } else if (!$skipRemovedNode) {
-                    $result .= $this->origTokens->getTokenCode(
-                        $pos, $itemStartPos, $indentAdjustment);
-                } else {
-                    if ($isStmtList && $this->origTokens->haveBracesInRange($pos, $itemStartPos)) {
-                        // We'd remove the brace of a code block.
-                        // TODO: Preserve formatting.
-                        $this->setIndentLevel($origIndentLevel);
-                        return null;
-                    }
                 }
 
-                if ($commentsChanged && $comments) {
-                    // Add new comments
-                    $result .= $this->pComments($comments) . $this->nl;
+                if ($comments !== $origComments) {
+                    if ($comments) {
+                        $result .= $this->pComments($comments) . $this->nl;
+                    }
+                } else {
+                    $result .= $this->origTokens->getTokenCode(
+                        $commentStartPos, $itemStartPos, $indentAdjustment);
                 }
 
                 // If we had to remove anything, we have done so now.
@@ -1242,7 +1242,7 @@ abstract class PrettyPrinterAbstract
     /**
      * Lazily initializes the removal map.
      *
-     * The removal map is used to determine which additional tokens should be returned when a
+     * The removal map is used to determine which additional tokens should be removed when a
      * certain node is replaced by null.
      */
     protected function initializeRemovalMap() {
@@ -1269,6 +1269,8 @@ abstract class PrettyPrinterAbstract
             'Stmt_Catch->var' => $stripLeft,
             'Stmt_ClassMethod->returnType' => $stripColon,
             'Stmt_Class->extends' => ['left' => \T_EXTENDS],
+            'Stmt_Enum->scalarType' => $stripColon,
+            'Stmt_EnumCase->expr' => $stripEquals,
             'Expr_PrintableNewAnonClass->extends' => ['left' => \T_EXTENDS],
             'Stmt_Continue->num' => $stripBoth,
             'Stmt_Foreach->keyVar' => $stripDoubleArrow,
@@ -1307,6 +1309,8 @@ abstract class PrettyPrinterAbstract
             'Stmt_Catch->var' => [null, false, ' ', null],
             'Stmt_ClassMethod->returnType' => [')', false, ' : ', null],
             'Stmt_Class->extends' => [null, false, ' extends ', null],
+            'Stmt_Enum->scalarType' => [null, false, ' : ', null],
+            'Stmt_EnumCase->expr' => [null, false, ' = ', null],
             'Expr_PrintableNewAnonClass->extends' => [null, ' extends ', null],
             'Stmt_Continue->num' => [\T_CONTINUE, false, ' ', null],
             'Stmt_Foreach->keyVar' => [\T_AS, false, null, ' => '],
@@ -1356,6 +1360,7 @@ abstract class PrettyPrinterAbstract
             'Stmt_ClassConst->consts' => ', ',
             'Stmt_ClassMethod->params' => ', ',
             'Stmt_Class->implements' => ', ',
+            'Stmt_Enum->implements' => ', ',
             'Expr_PrintableNewAnonClass->implements' => ', ',
             'Stmt_Const->consts' => ', ',
             'Stmt_Declare->declares' => ', ',
@@ -1375,12 +1380,14 @@ abstract class PrettyPrinterAbstract
             'Stmt_Unset->vars' => ', ',
             'Stmt_Use->uses' => ', ',
             'MatchArm->conds' => ', ',
+            'AttributeGroup->attrs' => ', ',
 
             // statement lists
             'Expr_Closure->stmts' => "\n",
             'Stmt_Case->stmts' => "\n",
             'Stmt_Catch->stmts' => "\n",
             'Stmt_Class->stmts' => "\n",
+            'Stmt_Enum->stmts' => "\n",
             'Expr_PrintableNewAnonClass->stmts' => "\n",
             'Stmt_Interface->stmts' => "\n",
             'Stmt_Trait->stmts' => "\n",
@@ -1395,6 +1402,19 @@ abstract class PrettyPrinterAbstract
             'Stmt_Function->stmts' => "\n",
             'Stmt_If->stmts' => "\n",
             'Stmt_Namespace->stmts' => "\n",
+            'Stmt_Class->attrGroups' => "\n",
+            'Stmt_Enum->attrGroups' => "\n",
+            'Stmt_EnumCase->attrGroups' => "\n",
+            'Stmt_Interface->attrGroups' => "\n",
+            'Stmt_Trait->attrGroups' => "\n",
+            'Stmt_Function->attrGroups' => "\n",
+            'Stmt_ClassMethod->attrGroups' => "\n",
+            'Stmt_ClassConst->attrGroups' => "\n",
+            'Stmt_Property->attrGroups' => "\n",
+            'Expr_PrintableNewAnonClass->attrGroups' => ' ',
+            'Expr_Closure->attrGroups' => ' ',
+            'Expr_ArrowFunction->attrGroups' => ' ',
+            'Param->attrGroups' => ' ',
             'Stmt_Switch->cases' => "\n",
             'Stmt_TraitUse->adaptations' => "\n",
             'Stmt_TryCatch->stmts' => "\n",
@@ -1423,6 +1443,7 @@ abstract class PrettyPrinterAbstract
             'Expr_PrintableNewAnonClass->implements' => [null, ' implements ', ''],
             'Expr_StaticCall->args' => ['(', '', ''],
             'Stmt_Class->implements' => [null, ' implements ', ''],
+            'Stmt_Enum->implements' => [null, ' implements ', ''],
             'Stmt_ClassMethod->params' => ['(', '', ''],
             'Stmt_Interface->extends' => [null, ' extends ', ''],
             'Stmt_Function->params' => ['(', '', ''],
