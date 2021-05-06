@@ -17,8 +17,12 @@ use PhpParser\Node\Stmt\Return_;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [HomeController::class, 'dataread']);
+Route::get('/',function()
+{
+if(!empty(Auth::user()->id))
+	{[HomeController::class, 'dataread'];}
+else{return view('wek');}
+}
 Route::get('/try', function ()
 {
     return view('wek');
