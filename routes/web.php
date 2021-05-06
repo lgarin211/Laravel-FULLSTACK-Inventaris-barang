@@ -19,8 +19,9 @@ use PhpParser\Node\Stmt\Return_;
 */
 
 Route::get('/', [HomeController::class, 'dataread']);
-Route::get('/try', function () {
-    return view('try');
+Route::get('/try', function ()
+{
+    return view('wek');
 });
 
 Route::get('/insert',[read::class,'index']);
