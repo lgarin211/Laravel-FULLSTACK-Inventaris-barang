@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('wek');
-        return redirect('/try');
+        return view('wek');
+        // return redirect('/try');
     }
     public function dataread()
     {
