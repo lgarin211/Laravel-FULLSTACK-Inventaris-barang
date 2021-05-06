@@ -10,18 +10,18 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Core css file -->
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/fonts/line-icons.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/fonts/line-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/animate.css">
 
     <!-- Plugins CSS file -->
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/slicknav.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/slicknav.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/owl.theme.css">
 
     <!-- Project css with  Responsive-->
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/main.css">
-    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/responsive.css">
 
 </head>
 
@@ -288,7 +288,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4">
                     <div class="team-item text-center">
                         <div class="team-img">
-                            <img class="img-fluid" src="{{asset('/Tenpurēto')}}assets/img/20191002_145133.jpg" alt="">
+                            <img class="img-fluid" src="{{asset('/Tenpurēto')}}/assets/img/20191002_145133.jpg" alt="">
                             <div class="team-overlay">
                                 <div class="overlay-social-icon text-center">
                                     <ul class="social-icons">
@@ -319,7 +319,7 @@
                         <div class="item">
                             <div class="testimonial-item d-flex">
                                 <div class="img-thumb">
-                                    <img src="{{asset('/Tenpurēto')}}assets/img/sm/avatar1.jpg" alt="">
+                                    <img src="{{asset('/Tenpurēto')}}/assets/img/sm/avatar1.jpg" alt="">
                                 </div>
                                 <div class="content">
                                     <p class="description">Holisticly empower leveraged ROI whereas effective
@@ -337,7 +337,7 @@
                         <div class="item">
                             <div class="testimonial-item d-flex">
                                 <div class="img-thumb">
-                                    <img src="{{asset('/Tenpurēto')}}assets/img/sm/avatar2.jpg" alt="">
+                                    <img src="{{asset('/Tenpurēto')}}/assets/img/sm/avatar2.jpg" alt="">
                                 </div>
                                 <div class="content">
                                     <p class="description">Holisticly empower leveraged ROI whereas effective
@@ -375,7 +375,7 @@
                     <div class="card wow fadeInUp" data-wow-delay="0.3s">
                         <ul class="pricing card-body">
                             <li class="plan-img"><img class="img-fluid rounded-circle"
-                                    src="../{{asset('/Tenpurēto')}}assets/images/plan-1.svg"></li>
+                                    src="../{{asset('/Tenpurēto')}}/assets/images/plan-1.svg"></li>
                             <li class="price">
                                 <h3><span>$</span> 99 <small>/ mo</small></h3>
                                 <span>Freelance</span>
@@ -391,7 +391,7 @@
                     <div class="card wow fadeInUp" data-wow-delay="0.7s">
                         <ul class="pricing card-body">
                             <li class="plan-img"><img class="img-fluid rounded-circle"
-                                    src="../{{asset('/Tenpurēto')}}assets/images/plan-2.svg"></li>
+                                    src="../{{asset('/Tenpurēto')}}/assets/images/plan-2.svg"></li>
                             <li class="price">
                                 <h3><span>$</span> 199 <small>/ mo</small></h3>
                                 <span>Business</span>
@@ -407,7 +407,7 @@
                     <div class="card wow fadeInUp" data-wow-delay="1.0s">
                         <ul class="pricing card-body">
                             <li class="plan-img"><img class="img-fluid rounded-circle"
-                                    src="../{{asset('/Tenpurēto')}}assets/images/plan-3.svg"></li>
+                                    src="../{{asset('/Tenpurēto')}}/assets/images/plan-3.svg"></li>
                             <li class="price">
                                 <h3><span>$</span> 299 <small>/ mo</small></h3>
                                 <span>Enterprise</span>
@@ -494,22 +494,22 @@
             <div class="row text-align-">
                 <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="client-item-wrapper">
-                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}assets/img/clients/img1.png" alt="">
+                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}/assets/img/clients/img1.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="client-item-wrapper">
-                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}assets/img/clients/img2.png" alt="">
+                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}/assets/img/clients/img2.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
                     <div class="client-item-wrapper">
-                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}assets/img/clients/img3.png" alt="">
+                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}/assets/img/clients/img3.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="1.2s">
                     <div class="client-item-wrapper">
-                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}assets/img/clients/img4.png" alt="">
+                        <img class="img-fluid" src="{{asset('/Tenpurēto')}}/assets/img/clients/img4.png" alt="">
                     </div>
                 </div>
             </div>
@@ -552,22 +552,22 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{asset('/Tenpurēto')}}assets/js/jquery-min.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/popper.min.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/bootstrap.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/jquery-min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/popper.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/bootstrap.min.js"></script>
 
-    <script src="{{asset('/Tenpurēto')}}assets/js/wow.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/scrolling-nav.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/owl.carousel.min.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/jquery.nav.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/jquery.easing.min.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/jquery.slicknav.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/particles.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/wow.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/scrolling-nav.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/owl.carousel.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/jquery.nav.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/jquery.easing.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/jquery.slicknav.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/particles.min.js"></script>
 
-    <script src="{{asset('/Tenpurēto')}}assets/js/main.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/form-validator.min.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/contact-form-script.min.js"></script>
-    <script src="{{asset('/Tenpurēto')}}assets/js/particlesjs.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/main.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/form-validator.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/contact-form-script.min.js"></script>
+    <script src="{{asset('/Tenpurēto')}}/assets/js/particlesjs.js"></script>
 </body>
 
 </html>
