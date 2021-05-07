@@ -18,6 +18,7 @@ use Illuminate\Http\Client\Factory;
  * @method static \Illuminate\Http\Client\PendingRequest bodyFormat(string $format)
  * @method static \Illuminate\Http\Client\PendingRequest contentType(string $contentType)
  * @method static \Illuminate\Http\Client\PendingRequest retry(int $times, int $sleep = 0)
+ * @method static \Illuminate\Http\Client\PendingRequest sink($to)
  * @method static \Illuminate\Http\Client\PendingRequest stub(callable $callback)
  * @method static \Illuminate\Http\Client\PendingRequest timeout(int $seconds)
  * @method static \Illuminate\Http\Client\PendingRequest withBasicAuth(string $username, string $password)
@@ -29,6 +30,10 @@ use Illuminate\Http\Client\Factory;
  * @method static \Illuminate\Http\Client\PendingRequest withToken(string $token, string $type = 'Bearer')
  * @method static \Illuminate\Http\Client\PendingRequest withoutRedirecting()
  * @method static \Illuminate\Http\Client\PendingRequest withoutVerifying()
+ * @method static \Illuminate\Http\Client\PendingRequest dump()
+ * @method static \Illuminate\Http\Client\PendingRequest dd()
+ * @method static \Illuminate\Http\Client\PendingRequest async()
+ * @method static array pool(callable $callback)
  * @method static \Illuminate\Http\Client\Response delete(string $url, array $data = [])
  * @method static \Illuminate\Http\Client\Response get(string $url, array $query = [])
  * @method static \Illuminate\Http\Client\Response head(string $url, array $query = [])
@@ -37,6 +42,11 @@ use Illuminate\Http\Client\Factory;
  * @method static \Illuminate\Http\Client\Response put(string $url, array $data = [])
  * @method static \Illuminate\Http\Client\Response send(string $method, string $url, array $options = [])
  * @method static \Illuminate\Http\Client\ResponseSequence fakeSequence(string $urlPattern = '*')
+ * @method static void assertSent(callable $callback)
+ * @method static void assertNotSent(callable $callback)
+ * @method static void assertNothingSent()
+ * @method static void assertSentCount(int $count)
+ * @method static void assertSequencesAreEmpty()
  *
  * @see \Illuminate\Http\Client\Factory
  */

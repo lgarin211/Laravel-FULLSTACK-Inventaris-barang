@@ -6,6 +6,7 @@ use ArrayAccess;
 use Closure;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Container\CircularDependencyException;
 use Illuminate\Contracts\Container\Container as ContainerContract;
 use LogicException;
 use ReflectionClass;
@@ -106,6 +107,13 @@ class Container implements ArrayAccess, ContainerContract
     protected $reboundCallbacks = [];
 
     /**
+     * All of the global before resolving callbacks.
+     *
+     * @var \Closure[]
+     */
+    protected $globalBeforeResolvingCallbacks = [];
+
+    /**
      * All of the global resolving callbacks.
      *
      * @var \Closure[]
@@ -118,6 +126,13 @@ class Container implements ArrayAccess, ContainerContract
      * @var \Closure[]
      */
     protected $globalAfterResolvingCallbacks = [];
+
+    /**
+     * All of the before resolving callbacks by class type.
+     *
+     * @var array[]
+     */
+    protected $beforeResolvingCallbacks = [];
 
     /**
      * All of the resolving callbacks by class type.
@@ -612,7 +627,7 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * An alias function name for make().
      *
-     * @param  string  $abstract
+     * @param  string|callable  $abstract
      * @param  array  $parameters
      * @return mixed
      *
@@ -626,7 +641,7 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Resolve the given type from the container.
      *
-     * @param  string  $abstract
+     * @param  string|callable  $abstract
      * @param  array  $parameters
      * @return mixed
      *
@@ -645,7 +660,7 @@ class Container implements ArrayAccess, ContainerContract
         try {
             return $this->resolve($id);
         } catch (Exception $e) {
-            if ($this->has($id)) {
+            if ($this->has($id) || $e instanceof CircularDependencyException) {
                 throw $e;
             }
 
@@ -656,16 +671,24 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Resolve the given type from the container.
      *
-     * @param  string  $abstract
+     * @param  string|callable  $abstract
      * @param  array  $parameters
      * @param  bool  $raiseEvents
      * @return mixed
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \Illuminate\Contracts\Container\CircularDependencyException
      */
     protected function resolve($abstract, $parameters = [], $raiseEvents = true)
     {
         $abstract = $this->getAlias($abstract);
+
+        // First we'll fire any event handlers which handle the "before" resolving of
+        // specific types. This gives some hooks the chance to add various extends
+        // calls to change the resolution of objects that they're interested in.
+        if ($raiseEvents) {
+            $this->fireBeforeResolvingCallbacks($abstract, $parameters);
+        }
 
         $concrete = $this->getContextualConcrete($abstract);
 
@@ -724,7 +747,7 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Get the concrete type for a given abstract.
      *
-     * @param  string  $abstract
+     * @param  string|callable  $abstract
      * @return mixed
      */
     protected function getConcrete($abstract)
@@ -742,7 +765,7 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Get the contextual concrete binding for the given abstract.
      *
-     * @param  string  $abstract
+     * @param  string|callable  $abstract
      * @return \Closure|string|array|null
      */
     protected function getContextualConcrete($abstract)
@@ -768,7 +791,7 @@ class Container implements ArrayAccess, ContainerContract
     /**
      * Find the concrete binding for the given abstract in the contextual binding array.
      *
-     * @param  string  $abstract
+     * @param  string|callable  $abstract
      * @return \Closure|string|null
      */
     protected function findInContextualBindings($abstract)
@@ -795,6 +818,7 @@ class Container implements ArrayAccess, ContainerContract
      * @return mixed
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \Illuminate\Contracts\Container\CircularDependencyException
      */
     public function build($concrete)
     {
@@ -817,6 +841,10 @@ class Container implements ArrayAccess, ContainerContract
         if (! $reflector->isInstantiable()) {
             return $this->notInstantiable($concrete);
         }
+
+        // if (in_array($concrete, $this->buildStack)) {
+        //     throw new CircularDependencyException("Circular dependency detected while resolving [{$concrete}].");
+        // }
 
         $this->buildStack[] = $concrete;
 
@@ -964,10 +992,14 @@ class Container implements ArrayAccess, ContainerContract
         // the value of the dependency, similarly to how we do this with scalars.
         catch (BindingResolutionException $e) {
             if ($parameter->isDefaultValueAvailable()) {
+                array_pop($this->with);
+
                 return $parameter->getDefaultValue();
             }
 
             if ($parameter->isVariadic()) {
+                array_pop($this->with);
+
                 return [];
             }
 
@@ -1033,6 +1065,26 @@ class Container implements ArrayAccess, ContainerContract
     }
 
     /**
+     * Register a new before resolving callback for all types.
+     *
+     * @param  \Closure|string  $abstract
+     * @param  \Closure|null  $callback
+     * @return void
+     */
+    public function beforeResolving($abstract, Closure $callback = null)
+    {
+        if (is_string($abstract)) {
+            $abstract = $this->getAlias($abstract);
+        }
+
+        if ($abstract instanceof Closure && is_null($callback)) {
+            $this->globalBeforeResolvingCallbacks[] = $abstract;
+        } else {
+            $this->beforeResolvingCallbacks[$abstract][] = $callback;
+        }
+    }
+
+    /**
      * Register a new resolving callback.
      *
      * @param  \Closure|string  $abstract
@@ -1069,6 +1121,39 @@ class Container implements ArrayAccess, ContainerContract
             $this->globalAfterResolvingCallbacks[] = $abstract;
         } else {
             $this->afterResolvingCallbacks[$abstract][] = $callback;
+        }
+    }
+
+    /**
+     * Fire all of the before resolving callbacks.
+     *
+     * @param  string  $abstract
+     * @param  array  $parameters
+     * @return void
+     */
+    protected function fireBeforeResolvingCallbacks($abstract, $parameters = [])
+    {
+        $this->fireBeforeCallbackArray($abstract, $parameters, $this->globalBeforeResolvingCallbacks);
+
+        foreach ($this->beforeResolvingCallbacks as $type => $callbacks) {
+            if ($type === $abstract || is_subclass_of($abstract, $type)) {
+                $this->fireBeforeCallbackArray($abstract, $parameters, $callbacks);
+            }
+        }
+    }
+
+    /**
+     * Fire an array of callbacks with an object.
+     *
+     * @param  string  $abstract
+     * @param  array  $parameters
+     * @param  array  $callbacks
+     * @return void
+     */
+    protected function fireBeforeCallbackArray($abstract, $parameters, array $callbacks)
+    {
+        foreach ($callbacks as $callback) {
+            $callback($abstract, $parameters, $this);
         }
     }
 
@@ -1160,11 +1245,9 @@ class Container implements ArrayAccess, ContainerContract
      */
     public function getAlias($abstract)
     {
-        if (! isset($this->aliases[$abstract])) {
-            return $abstract;
-        }
-
-        return $this->getAlias($this->aliases[$abstract]);
+        return isset($this->aliases[$abstract])
+                    ? $this->getAlias($this->aliases[$abstract])
+                    : $abstract;
     }
 
     /**
@@ -1175,9 +1258,7 @@ class Container implements ArrayAccess, ContainerContract
      */
     protected function getExtenders($abstract)
     {
-        $abstract = $this->getAlias($abstract);
-
-        return $this->extenders[$abstract] ?? [];
+        return $this->extenders[$this->getAlias($abstract)] ?? [];
     }
 
     /**

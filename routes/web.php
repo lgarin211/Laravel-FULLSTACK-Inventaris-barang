@@ -82,3 +82,7 @@ Route::get('/buatpc', function () {
     return view('komputer.make');
 });
 Route::post('/kirimpc', 'creat@kirimpc');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

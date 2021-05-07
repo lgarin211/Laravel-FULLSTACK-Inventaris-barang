@@ -43,7 +43,7 @@
                                     <tr role="row">
                                         <th>Nama Produk</th>
                                         <th>banyak</th>
-                                        <th>key</th>
+                                        <th>Grub</th>
                                         <th>barcode</th>
                                         <th>status</th>
                                     </tr>
@@ -52,7 +52,7 @@
                                     <tr>
                                         <th>Nama Produk</th>
                                         <th>banyak</th>
-                                        <th>key</th>
+                                        <th>Grub</th>
                                         <th>barcode</th>
                                         <th>status</th>
                                     </tr>
@@ -69,22 +69,14 @@
                                     <tr>
                                     <tr>
                                         <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle"
-                                                    id="binpageitem<?= ($keyles) + 1 ?>" type="button"
-                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                    item
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div class="cass">
+                                                <ul>
                                                     @foreach ($itm as $it)
                                                     @php
                                                     $banyak=$banyak+$it->banyak_item;
                                                     @endphp
-                                                    <li
-                                                        onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
-                                                        <button id="dosone<?= ($keyles) + 1 ?><?= $it->id; ?>"
-                                                            class="dropdown-item">{{$it->nama_item}}</button>
+                                                    <li>
+                                                        {{$it->nama_item}}
                                                     </li>
                                                     @endforeach
                                                 </ul>
@@ -97,49 +89,27 @@
                                         </td>
                                         <td>{{$itm[0]->t_key}}</td>
                                         <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle"
-                                                    id="binpagebarcode<?= ($keyles) + 1 ?>" type="button"
-                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                    Barcode
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div class="cass">
+                                                <ul>
                                                     @foreach ($itm as $it)
                                                     @php
                                                     $banyak=$banyak+$it->banyak_item;
                                                     @endphp
-                                                    <li
-                                                        onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
-                                                        <button id="dostwo<?= ($keyles) + 1 ?><?= $it->id; ?>"
-                                                            class="dropdown-item">{{$it->barcode}}</button>
+                                                    <li>{{$it->barcode}}
                                                     </li>
                                                     @endforeach
                                                 </ul>
                                             </div>
                                         <td>
 
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle"
-                                                    id="binpagekondisi<?= ($keyles) + 1 ?>" type="button"
-                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                    Kondisi
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div class="cass">
+                                                <ul>
                                                     @foreach ($itm as $it)
                                                     @php
                                                     @endphp
-                                                    <li
-                                                        onclick="das<?= ($keyles) + 1 ?>(<?= ($keyles) + 1 ?>{{$it->id}})">
-                                                        <button id="dostree<?= ($keyles) + 1 ?><?= $it->id; ?>"
-                                                            class="dropdown-item"> @if ($it->pos==0)
-                                                            {{'sedang di pinjam'}}
-                                                            @else
-                                                            {{'ready to use'}}
-                                                            @endif
-                                                        </button>
-                                                    </li>
+                                                    <li>
+                                                        {{$it->deks}}
+                                                    </li>                                                    </li>
                                                     @endforeach
                                                 </ul>
                                             </div>
