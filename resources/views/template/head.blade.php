@@ -13,7 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('data') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('data') }}/css/sb-admin-2.css" rel="stylesheet">
@@ -63,7 +65,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             @php
-            $casal=['<a class="nav-link" href="'.url('/').'/kategori_t/katerori_k/tools.katerori_add"><i class="fas fa-fw fa-cog"></i>
+            $casal=['<a class="nav-link" href="'.url('/').'/kategori_t/katerori_k/tools.katerori_add"><i
+                    class="fas fa-fw fa-cog"></i>
                 <span> Make new kategori</span></a>',
             '<a class="nav-link" href="'.url('/').'/kondisi_t/kondisi_k/tools.kondisi_add"><i class="fas fa-fw fa-cog"></i>
                 <span> Make new kondisi</span></a>',
@@ -86,11 +89,13 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Utilities</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -142,9 +147,11 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -158,13 +165,16 @@
                         @if (Route::has('login'))
                         @auth
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     {{ Auth::user()->name }} </span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                <img class="img-profile rounded-circle"
+                                    src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -187,12 +197,14 @@
                         @else
                         <div class="row">
                             <p class="nav-item active ">
-                                <a class="nav-link" href="{{ url('login') }}">LOGIN<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{ url('login') }}">LOGIN<span
+                                        class="sr-only">(current)</span></a>
                             </p>
                             @if (Route::has('register'))
 
                             <p class="nav-item active  dropdown no-arrow ">
-                                <a class="nav-link" href="{{ route('register') }}">REGISTRASI<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{ route('register') }}">REGISTRASI<span
+                                        class="sr-only">(current)</span></a>
                             </p>
                             @endif
                         </div>
@@ -208,55 +220,6 @@
                     <h1 class="btn text-center btn-danger">{{session('status')}}</h1>
                     @endif
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 mb-4">
-                                <div class="card border-left-success shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Barang Baru</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{url('/')}}/read_read" class="btn btn-success ">Input</a></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Peminjaman Barang</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{url('/')}}/pijam" class="btn btn-primary ">Input</a></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card border-left-danger shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Barang Keluar</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"> <a href="{{url('/')}}/out" class="btn btn-danger ">Input</a></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    @yield('conten')
 
-                        @yield('conten')
-
-                        @extends('template.foot')
+                    @extends('template.foot')
