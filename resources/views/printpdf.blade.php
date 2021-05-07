@@ -35,7 +35,7 @@
             @foreach ($data as $a=>$item)
             <tr>
                 @foreach ($item as $b=>$itm)
-                <td>{{$itm}}</td>
+                <td><?=$itm?></td>
                 @endforeach
             </tr>
             @endforeach

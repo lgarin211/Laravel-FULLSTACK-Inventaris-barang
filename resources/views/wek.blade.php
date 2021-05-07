@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>INVENTARIS RPL SMKN 4 BOGOR</title>
-
+    <link rel="shortcut icon" href="{{asset('/INVENTARIS-removebg-preview.png')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Core css file -->
     <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/bootstrap.min.css">

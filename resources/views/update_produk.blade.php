@@ -21,7 +21,21 @@
         </div>
         <hr>
         <label for="NAMA PRODUK">DESKRISI PRODUK</label>
-        <textarea required type="text" name="deksripsi" class="text-center form-control" placeholder="masukan deskripsi" autofocus></textarea>
+        <textarea id="my-editor" required type="text" name="deksripsi" class="text-center form-control" placeholder="masukan deskripsi" autofocus class="form-control">
+        {!! old('content', 'test editor content') !!}
+        </textarea>
+            <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+            <script>
+            var options = {
+                filebrowserImageBrowseUrl: '{{url("/")}}/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '{{url("/")}}/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '{{url("/")}}/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '{{url("/")}}/laravel-filemanager/upload?type=Files&_token='
+            };
+            </script>
+            <script>
+            CKEDITOR.replace('my-editor', options);
+            </script>
         {{-- <hr>
         <input required type="hidden" name="banyak_item" value="1"> --}}
         <label for="NAMA PRODUK">KONDISI PRODUK</label>
