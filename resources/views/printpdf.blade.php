@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="shortcut icon" href="{{asset('/INVENTARIS-removebg-preview.png')}}">
+
     <title>RPL - SMKN 4 BOGOR</title>
 
     <!-- Custom fonts for this template-->

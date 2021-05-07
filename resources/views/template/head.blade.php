@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="{{asset('/INVENTARIS-removebg-preview.png')}}">
+    
 
     <title>RPL - SMKN 4 BOGOR</title>
 
@@ -34,7 +36,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-0">
-                    <img src="https://pjj.smkn4bogor.sch.id/pluginfile.php/1/theme_klass/logo/1599786225/70.png" alt="">
+                    <img src="{{asset('/INVENTARIS-removebg-preview.png')}}" alt="" width="100px">
                 </div>
                 <div class="sidebar-brand-text mx-3">INVENTARIS <br>LAB RPL</div>
             </a>

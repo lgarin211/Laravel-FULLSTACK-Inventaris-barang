@@ -39,7 +39,7 @@
                         <span class="icon-menu"></span>
                     </button>
                     <div class="navbar-brand">
-                        <img src="https://pjj.smkn4bogor.sch.id/pluginfile.php/1/theme_klass/logo/1599786225/70.png"
+                        <img src="{{asset('/INVENTARIS-removebg-preview.png')}}"
                             width="40px" style="width: 40px;"> INVENTARIS LAB RPL
                     </div>
                 </div>
@@ -523,7 +523,7 @@
                 <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="footer-logo mb-3">
                         <h1> <img
-                                src="https://pjj.smkn4bogor.sch.id/pluginfile.php/1/theme_klass/logo/1599786225/70.png"
+                                src="{{asset('/INVENTARIS-removebg-preview.png')}}"
                                 width="50px" style="width: 50px;"> INVENTARIS LAB RPL</h1>
                     </div>
             </div>
