@@ -1,4 +1,7 @@
 @extends('template.head')
+@section('openddb')
+Pengembalian Barang
+@endsection
 @section('conten')
 @php
 $kata="form pengembalian barang";

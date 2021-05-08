@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3.0|^8.0.0",
+        "encore/laravel-admin": "^1.8",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -18,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
         "livewire/livewire": "^2.0",
+        "maatwebsite/excel": "^3.1",
         "unisharp/laravel-filemanager": "^2.2"
     },
     "require-dev": {

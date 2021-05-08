@@ -1,4 +1,7 @@
 @extends('template.head')
+@section('openddb')
+LENGKAPI DATA
+@endsection
 @section('conten')
 @php
 // dd($final);
@@ -77,7 +80,8 @@
         </div><br>
         {{-- <input type="text" name="barcode"> --}}
         @csrf
-        <button type="submit" class="btn bg-primary text-danger ">kirim</button>
+        <a class="btn btn-danger " href="{{url('/di/'.$final[0]->id.'/item')}}">Batal</a>
+        <button type="submit" class="btn btn-success">kirim</button>
     </div>
 </form>
 

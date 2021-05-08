@@ -35,7 +35,6 @@ class read extends Controller
                     $view       =    'update_produk';
                     $data       =    'flight';
                     $final      =    [$flight, $data, $run];
-                    // \dd($final);
                     return \view($view, compact('final'));
                 } else {
                     $view = 'input_produk';
@@ -58,14 +57,13 @@ class read extends Controller
         // \dd($data[0]);
         return \view($view, compact('data'));
     }
-    // public function a(Request $request)
-    // { $item = DB::table('item')->where('barcode', $request->barcode)->first();
-    //  if ($item->pos==1) {
-    //     return view('pinjam',compact('item'));
-    // }else {
-    //     echo "barang sudah di pinjam";
-    // }
-    // }
+
+    public function pinjam()
+    {
+        $items= DB::table('item_pinjam_table')->orderByDesc('updated_at')->get();
+        return view('find_pinjam', \compact("items"));
+    }
+
     public function b(Request $request)
     {
         $item = DB::table('item')->where('barcode', $request->barcode)->first();

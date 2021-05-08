@@ -1,4 +1,7 @@
 @extends('template.head')
+@section('openddb')
+INVENTARIS
+@endsection
 @section('conten')
 <div class="container">
     <div class="col-lg mb-4">
@@ -13,16 +16,12 @@
                 @foreach ($data[1] as $key=>$n)
                 @php
                 $warna='success';
-                if ($n<10) { $warna='danger' ; }elseif ($n<80) { $warna='primary' ; } $comen1='' ; $comen2='' ; if
-                    ($n==0) { $comen1='<!--' ; $comen2='-->' ; } @endphp @php echo $comen1; @endphp <h4
-                    class="small font-weight-bold">{{$data[0][$key]}} <span class="float-right">{{$n}}</span></h4>
+                if ($n<10) { $warna='danger' ; }elseif ($n<80) { $warna='primary' ; } $comen1='' ; $comen2='' ; if ($n==0) { $comen1='<!--' ; $comen2='-->' ; } @endphp @php echo $comen1; @endphp <h4 class="small font-weight-bold">{{$data[0][$key]}} <span class="float-right">{{$n}}</span></h4>
                     <div class="progress mb-4">
                         @php
                         $per=$n*2;
                         @endphp
-                        <div class="progress-bar bg-{{$warna}} progress-bar-striped progress-bar-animated"
-                            role="progressbar" style="width: {{$per}}%" aria-valuenow="{{$per}}" aria-valuemin="0"
-                            aria-valuemax="100"></div>
+                        <div class="progress-bar bg-{{$warna}} progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{$per}}%" aria-valuenow="{{$per}}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     @php
                     echo $comen2;

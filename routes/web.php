@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\creat;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\read;
 use App\Http\Controllers\update;
@@ -28,17 +29,16 @@ Route::get('/', function () {
 
 Route::get('/das', [HomeController::class, 'dataread']);
 
-
-
 Route::get('/try', function () {
     return view('wek');
 });
 
 Route::get('/insert', [read::class, 'index']);
-Route::post('/insert', 'creat@creat');
+Route::post('/insert', [creat::class,'creat']);
 Route::get('/read_read', [read::class, 'read']);
-Route::put('/ui/{id}', 'update@update');
-Route::put('/keluar/{id}', 'creat@cread_out');
+Route::put('/ui/{id}', [update::class,'update']);
+Route::get('/di/{id}/{tebel}', [update::class,'up_delet']);
+Route::put('/keluar/{id}', [creat::class,'cread_out']);
 
 Route::get('/out', [read::class, 'out_view']);
 Route::post('/out_find', [read::class, 'data_out']);
@@ -48,16 +48,14 @@ Route::get('/kondisi_t/{view}/{table}', [read::class, 'kategory']);
 Route::get('/lokasi_t/{view}/{table}', [read::class, 'kategory']);
 Route::get('/key_primary/{view}/{table}', [read::class, 'kategory']);
 Route::get('/komponen_t/{view}/{table}', [read::class, 'kategory']);
-Route::post('/make_C/{table}', 'creat@creat_key');
+Route::post('/make_C/{table}', [creat::class,'creat_key']);
 
-Route::get('/pijam', function () {
-    return view('find_pinjam');
-});
+Route::get('/pijam',[read::class, 'pinjam']);
 
 Route::put('/pin_in', [read::class, 'b']);
 Route::put('/pin_out', [read::class, 'a']);
-Route::put('send_news/{id}/{pic}', 'update@update_out');
-Route::put('send_news2/{id}/{pic}', 'update@update_out');
+Route::put('send_news/{id}/{pic}', [update::class,'update_out']);
+Route::put('send_news2/{id}/{pic}', [update::class,'update_out']);
 
 Auth::routes();
 
@@ -81,11 +79,15 @@ Route::get('/komputer', [read::class, 'komputer']);
 Route::get('/buatpc', function () {
     return view('komputer.make');
 });
-Route::post('/kirimpc', 'creat@kirimpc');
+Route::post('/kirimpc', [creat::class,'kirimpc']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    // return view('dashboard');
+    return redirect('/das');
 })->name('dashboard');
+
+Route::get('/importItem',[creat::class,'importcase']);
+Route::post('/importItem',[creat::class,'importcase']);
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

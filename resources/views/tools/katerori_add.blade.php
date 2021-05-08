@@ -1,4 +1,7 @@
 @extends('template.head')
+@section('openddb')
+Tools Add
+@endsection
 @section('conten')
 
 {{$data[1]}}

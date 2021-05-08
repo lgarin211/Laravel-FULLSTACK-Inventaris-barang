@@ -1,5 +1,8 @@
 
 @extends('template.head')
+@section('openddb')
+Peminjaman Barang
+@endsection
 @section('conten')
 @php
 $data="form peminjaman barang";
