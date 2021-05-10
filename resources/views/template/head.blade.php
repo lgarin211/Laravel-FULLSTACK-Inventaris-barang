@@ -54,6 +54,12 @@
                     <span>Komputer</span></a>
             </li>
 
+            <li class="nav-item bg-danger">
+                <a class="nav-link" href="{{url('/')}}/users">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Komputer</span></a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">

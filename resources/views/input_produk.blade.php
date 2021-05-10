@@ -9,6 +9,9 @@ DATA BARANG
     @csrf
     <button type="submit" class="form-control btn-primary">kirim</button>
 </form>
+<a class="form-control btn-success" href="ImportItem">Import VIA Exel</a>
+
+
 <br>
 
 <div class="container">
@@ -19,8 +22,7 @@ DATA BARANG
         <div class="card-body">
             <div class="table-responsive">
                 <div class="col-sm-12">
-                    <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
-                        style="width: 100%;">
+                    <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid" style="width: 100%;">
                         <thead>
                             <tr role="row">
                                 <th>Nama Produk</th>
@@ -125,7 +127,6 @@ DATA BARANG
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
     @endsection

@@ -33,44 +33,39 @@ $data="form peminjaman barang";
 <div class="card-body">
     <div class="table-responsive">
         <div class="col-sm-12">
-            <table class="table table-bordered dataTable text-center" width="100%" cellspacing="0" role="grid"
-                style="width: 100%;">
+            <table class="table table-bordered dataTable text-center" width="100%" cellspacing="0" role="grid" style="width: 100%;">
                 <thead>
                     <tr role="row">
                         <th>nama_item</th>
                         <th>kondisi_item</th>
-                        <th>Peminjam/Penerima</th>
+                        <th>Peminjam</th>
                         <th>barcode</th>
                         <th>Status</th>
-                        <th>Pada </th>
+                        <th>TGL Pinjam</th>
+                        <th>Penerima</th>
+                        <th>TGL Pinjam</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>Nama Item</th>
                         <th>Kondisi Item</th>
-                        <th>Peminjam/Penerima</th>
+                        <th>Peminjam</th>
                         <th>Barcode</th>
                         <th>Status</th>
-                        <th>Pada </th>
+                        <th>TGL Pinjam</th>
+                        <th>Penerima</th>
+                        <th>TGL Pinjam</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($items as $key=>$item )
-                    @if ($item->pic==0)
+                        @if ($item->pic==0)
                     <tr class="bg-warning">
-                        <td>{{$item->nama_item}}</td>
-                        <td>{{$item->kondisi_item}}</td>
-                        <td>{{$item->peminjam}}</td>
-                        <td>{{$item->barcode}}</td>
-                        <td>@if ($item->pic==0)
-                            {{"DIPINJAM"}}
-                            @else
-                            {{"Kembali"}}
-                            @endif</td>
-                        <td>{{$item->updated_at}}</td>
                         @else
                     <tr class="bg-success">
+                        @endif
+
                         <td>{{$item->nama_item}}</td>
                         <td>{{$item->kondisi_item}}</td>
                         <td>{{$item->peminjam}}</td>
@@ -79,8 +74,15 @@ $data="form peminjaman barang";
                             {{"DIPINJAM"}}
                             @else
                             {{"Kembali"}}
-                            @endif</td>
+                            @endif
+                        </td>
+                        <td>{{$item->created_at}}</td>
+                        @if ($item->pic==1)
+                        <td>{{$item->Petugas}}</td>
                         <td>{{$item->updated_at}}</td>
+                        @else
+                        <td>-</td>
+                        <td>-</td>
                         @endif
                     </tr>
                     @endforeach

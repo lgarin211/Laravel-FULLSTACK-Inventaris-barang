@@ -24,8 +24,9 @@ class creat extends Controller
             $tujuan_upload = 'storage/files/2/';
             $file->move($tujuan_upload,$file->getClientOriginalName());
             $exelfile = $tujuan_upload.$file->getClientOriginalName();
+            // dd($exelfile);
             $data = Excel::import(new Item, $exelfile);
-            return redirect('/','refresh');
+            return redirect('/');
 
         }
         if (empty($exelfile)) {
