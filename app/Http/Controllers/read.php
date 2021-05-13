@@ -11,8 +11,7 @@ class read extends Controller
 {
     public function index()
     {
-        return view('base');
-        # code...
+        // return view('base');
     }
 
     // Inventaris
@@ -55,6 +54,24 @@ class read extends Controller
 
         $data       =   [$flights, $datasort, $pin];
         // \dd($data[0]);
+        if (!empty($_GET['ajax'])) {
+        return \view('ajaxfile.tabel', compact('data'));
+        }
+        if (!empty($_GET['qbar'])) {
+            $datasort   =    [];
+            $a          =    0;
+            foreach ($pin as $key => $pi) {
+            $key_k      =    DB::table('item')->where('barcode','like',$_GET['qbar']."%")->get();
+            if ($key_k->count() > 0) {
+                $datasort[$a] = $key_k;
+                $a++;
+            }
+            $data       =   [$flights, $datasort, $pin];
+        return \view('ajaxfile.tabel', compact('data'));
+        }
+
+        
+        }
         return \view($view, compact('data'));
     }
 

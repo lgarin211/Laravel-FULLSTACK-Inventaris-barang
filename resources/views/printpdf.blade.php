@@ -22,7 +22,8 @@
 </head>
 
 <body>
-
+<h1>tabel Inventaris Barang Lab RPL </h1>
+<hr>
     <table class="table table-bordered dataTable text-center">
         <thead>
             @foreach ($data as $a=>$item)

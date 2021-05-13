@@ -268,7 +268,7 @@
                     <div class="team-item text-center">
                         <div class="team-img">
                             <img class="img-fluid"
-                                src="https://accounts.ignitegki.com/storage/image/profile/85-1558177107.png" alt="">
+                                src="{{asset('/Tenpurēto')}}/assets/img/sp.jpg" alt="" height="200px">
                             <div class="team-overlay">
                                 <div class="overlay-social-icon text-center">
                                     <ul class="social-icons">

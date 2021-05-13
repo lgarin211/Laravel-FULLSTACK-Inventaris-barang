@@ -24,27 +24,15 @@ Data Barang Keluar
                             <thead>
                                 <tr role="row">
                                     <th>id</th>
-                                    <th>nama_item</th>
-                                    <th>kondisi_item</th>
-                                    <th>banyak_item</th>
-                                    <th>lokasi_item</th>
-                                    <th>kategori date</th>
-                                    <th>barcode</th>
+                                    <th>Nama Barang</th>
+                                    <th>Kondisi Barang</th>
+                                    <th>Banyak</th>
+                                    <th>Lokasi</th>
+                                    <th>Kategori </th>
+                                    <th>Barcode</th>
                                     <th>keluar Pada</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>id</th>
-                                    <th>nama_item</th>
-                                    <th>kondisi_item</th>
-                                    <th>banyak_item</th>
-                                    <th>lokasi_item</th>
-                                    <th>kategori</th>
-                                    <th>barcode</th>
-                                    <th>Keluar Pada</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 @foreach ($flights as $itm)
                                 <tr>

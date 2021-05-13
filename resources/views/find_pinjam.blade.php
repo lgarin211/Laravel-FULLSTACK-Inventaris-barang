@@ -36,18 +36,6 @@ $data="form peminjaman barang";
             <table class="table table-bordered dataTable text-center" width="100%" cellspacing="0" role="grid" style="width: 100%;">
                 <thead>
                     <tr role="row">
-                        <th>nama_item</th>
-                        <th>kondisi_item</th>
-                        <th>Peminjam</th>
-                        <th>barcode</th>
-                        <th>Status</th>
-                        <th>TGL Pinjam</th>
-                        <th>Penerima</th>
-                        <th>TGL Pinjam</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
                         <th>Nama Item</th>
                         <th>Kondisi Item</th>
                         <th>Peminjam</th>
@@ -55,9 +43,9 @@ $data="form peminjaman barang";
                         <th>Status</th>
                         <th>TGL Pinjam</th>
                         <th>Penerima</th>
-                        <th>TGL Pinjam</th>
+                        <th>TGL Kembali</th>
                     </tr>
-                </tfoot>
+                </thead>
                 <tbody>
                     @foreach ($items as $key=>$item )
                         @if ($item->pic==0)
