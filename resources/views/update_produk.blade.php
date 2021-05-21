@@ -3,10 +3,6 @@
 LENGKAPI DATA
 @endsection
 @section('conten')
-@php
-// dd($final);
-// var_dump($final[0]);
-@endphp
 <form action="{{url('/')}}/ui/{{$final[0]->id}}" method="POST">
     <h1>produk barcode is: {{ $final[0]->barcode }}</h1>
     @method('PUT')
@@ -19,26 +15,29 @@ LENGKAPI DATA
                 <option value="{{$key->value}}">{{$key->key}}</option>
                 @endforeach
             </select>
-            <input required type="text" name="nama_item" class="text-center col-md-8 form-control" placeholder="{{'nama item'}}" autofocus>
-            <input required type="number" name="banyak_item" class="text-center col-md-2 form-control" placeholder="{{'Banyak Barang'}}" value="1">
+            <input required type="text" name="nama_item" class="text-center col-md-8 form-control"
+                placeholder="{{'nama item'}}" autofocus>
+            <input required type="number" name="banyak_item" class="text-center col-md-2 form-control"
+                placeholder="{{'Banyak Barang'}}" value="1">
         </div>
         <hr>
         <label for="NAMA PRODUK">DESKRISI PRODUK</label>
-        <textarea id="my-editor" required type="text" name="deksripsi" class="text-center form-control" placeholder="masukan deskripsi" autofocus class="form-control">
+        <textarea id="my-editor" required type="text" name="deksripsi" class="text-center form-control"
+            placeholder="masukan deskripsi" autofocus class="form-control">
         {!! old('content', 'test editor content') !!}
         </textarea>
-            <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-            <script>
+        <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+        <script>
             var options = {
                 filebrowserImageBrowseUrl: '{{url("/")}}/laravel-filemanager?type=Images',
                 filebrowserImageUploadUrl: '{{url("/")}}/laravel-filemanager/upload?type=Images&_token=',
                 filebrowserBrowseUrl: '{{url("/")}}/laravel-filemanager?type=Files',
                 filebrowserUploadUrl: '{{url("/")}}/laravel-filemanager/upload?type=Files&_token='
             };
-            </script>
-            <script>
+        </script>
+        <script>
             CKEDITOR.replace('my-editor', options);
-            </script>
+        </script>
         {{-- <hr>
         <input required type="hidden" name="banyak_item" value="1"> --}}
         <label for="NAMA PRODUK">KONDISI PRODUK</label>
@@ -75,7 +74,8 @@ LENGKAPI DATA
             </div>
             <div class="col-md-6 mb-3">
                 <label for="validationDefault02">Costem Lokasi Item</label>
-                <input type="text" name="lok2" class="form-control" id="validationDefault02" placeholder="Custem Lokasion">
+                <input type="text" name="lok2" class="form-control" id="validationDefault02"
+                    placeholder="Custem Lokasion">
             </div>
         </div><br>
         {{-- <input type="text" name="barcode"> --}}

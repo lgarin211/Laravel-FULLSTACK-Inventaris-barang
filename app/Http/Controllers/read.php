@@ -14,6 +14,22 @@ class read extends Controller
         // return view('base');
     }
 
+    public function read_up_item(Request $request,$id)
+    {
+
+        $flights = item_model::where('id',$id)->first();
+        // \dd($flights);
+        $komponen   =    $item = DB::table('komponen')->get();
+        $kondisi    =    $item = DB::table('kondisi_k')->get();
+        $lokasi     =    $item = DB::table('lokasi_k')->get();
+        $kategory   =    $item = DB::table('katerori_k')->get();
+        $key        =    $item = DB::table('key_k')->get();
+        $run        =    [$komponen, $kondisi, $lokasi, $kategory, $key];
+        $view       =    'update_produk2';
+        $data       =    'flight';
+        $final      =    [$flights, $data, $run];
+        return \view($view, compact('final'));
+    }
     // Inventaris
     public function read()
     {
@@ -55,29 +71,27 @@ class read extends Controller
         $data       =   [$flights, $datasort, $pin];
         // \dd($data[0]);
         if (!empty($_GET['ajax'])) {
-        return \view('ajaxfile.tabel', compact('data'));
+            return \view('ajaxfile.tabel', compact('data'));
         }
         if (!empty($_GET['qbar'])) {
             $datasort   =    [];
             $a          =    0;
             foreach ($pin as $key => $pi) {
-            $key_k      =    DB::table('item')->where('barcode','like',$_GET['qbar']."%")->get();
-            if ($key_k->count() > 0) {
-                $datasort[$a] = $key_k;
-                $a++;
+                $key_k      =    DB::table('item')->where('barcode', 'like', $_GET['qbar'] . "%")->get();
+                if ($key_k->count() > 0) {
+                    $datasort[$a] = $key_k;
+                    $a++;
+                }
+                $data       =   [$flights, $datasort, $pin];
+                return \view('ajaxfile.tabel', compact('data'));
             }
-            $data       =   [$flights, $datasort, $pin];
-        return \view('ajaxfile.tabel', compact('data'));
-        }
-
-        
         }
         return \view($view, compact('data'));
     }
 
     public function pinjam()
     {
-        $items= DB::table('item_pinjam_table')->orderByDesc('updated_at')->get();
+        $items = DB::table('item_pinjam_table')->orderByDesc('updated_at')->get();
         return view('find_pinjam', \compact("items"));
     }
 
@@ -109,7 +123,7 @@ class read extends Controller
             $data = [$item, $kata];
             $request->session()->flash('pesan', $data[1]);
             // return view('kembali',compact('data'));
-            return redirect('/pijam')->with('status', 'item sudah di pinjam');;
+            return redirect('/pijam')->with('status', 'item sudah di pinjam');
         }
     }
 

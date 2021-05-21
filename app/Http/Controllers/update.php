@@ -92,6 +92,9 @@ class update extends Controller
         $item_set->deks = $request->deksripsi;
         // dd($item_set);
         $item_set->save();
+        if (!empty($_GET['cas'])) {
+            return redirect('/edit/'.$id)->with('status', 'Update sudah Berhasil');
+        }
         return redirect('/read_read');
     }
     public function up_delet(Request $request, $id, $tabel)

@@ -53,7 +53,7 @@
                         <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                     </ul>
                     <div class="btn-sing float-right">
-                        <a class="btn btn-border" href="/login">Sign In</a>
+                        <a class="btn btn-border" href="{{url('/login')}}">Sign In</a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                         <div class="contents text-center">
                             <h2 class="head-title wow fadeInUp">INVENTARIS RPL SMKN 4 BOGOR</h2>
                             <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-                                <a href="/login" class="btn btn-success blush" style="font-weight: bold;">Do you ready ?</a>
+                                <a href="{{url('/login')}}" class="btn btn-success blush" style="font-weight: bold;">Do you ready ?</a>
                             </div>
                         </div>
                         <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
