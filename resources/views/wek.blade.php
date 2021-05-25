@@ -23,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/Tenpurēto')}}/assets/css/responsive.css">
 
+    <!-- FA -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 
 <body class="theme-cyan font-montserrat">
@@ -77,7 +80,7 @@
                         <div class="contents text-center">
                             <h2 class="head-title wow fadeInUp">INVENTARIS RPL SMKN 4 BOGOR</h2>
                             <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-                                <a href="/login" class="btn btn-success blush" style="font-weight: bold;">Do you ready ?</a>
+                                <a href="/login" class="btn btn-success blush" style="font-weight: bold;">Are you ready?</a>
                             </div>
                         </div>
                         <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
@@ -98,7 +101,7 @@
         <div class="container">
             <div class="section-header text-center wow fadeInDown" data-wow-delay="0.3s">
                 <h2 class="section-title">Service Pada Aplikasi </h2>
-                <p>Aplikasi INVENTARIS ini Belum Memiliki banyak Service namuun diantaranya:</p>
+                <p>Aplikasi INVENTARIS ini belum memiliki banyak service namun diantaranya:</p>
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-4 col-xs-12">
@@ -108,7 +111,7 @@
                         </div>
                         <div class="services-content">
                             <h3><a href="#">Penyimpanan Barang</a></h3>
-                            <p>Kami membuat Data Penyimpanan barang agar mudah di kelompokan dalam data</p>
+                            <p>Kami membuat data penyimpanan barang agar mudah dikelompokkan dalam data</p>
                         </div>
                     </div>
                 </div>
@@ -119,8 +122,8 @@
                         </div>
                         <div class="services-content">
                             <h3><a href="#">Peminjaman Barang</a></h3>
-                            <p>Pada APalikasi ini kamu membuat fungsi peminjaman agar barang dapat memiliki
-                                peingformasian pengelolaan yang baik</p>
+                            <p>Pada Aplikasi ini kamu membuat fungsi peminjaman agar barang dapat memiliki
+                                pengiformasian pengelolaan yang baik</p>
                         </div>
                     </div>
                 </div>
@@ -131,7 +134,7 @@
                         </div>
                         <div class="services-content">
                             <h3><a href="#">pengelolaan Barang Keluar</a></h3>
-                            <p>Barang Barang Yang Keluar dari Wilayahnya Bisa langsung di kelolah di Penyimpanan Data
+                            <p>Barang-barang yang keluar dari wilayahnya bisa langsung dikelola di penyimpanan data
                             </p>
                         </div>
                     </div>
@@ -238,22 +241,26 @@
                 </div>
             </div>
             <style>
-                .social-icons {
+                /* .social-icons {
                     display: none !important;
+                } */
+                .img-developer{
+                    height: 200px;
+                    width: 200px;
                 }
             </style>
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-4">
                     <div class="team-item text-center">
                         <div class="team-img">
-                            <img class="img-fluid"
+                            <img class="img-developer"
                                 src="https://accounts.ignitegki.com/storage/image/profile/85-1558177107.png" alt="">
                             <div class="team-overlay">
                                 <div class="overlay-social-icon text-center">
                                     <ul class="social-icons">
-                                        <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://github.com/KIGAMEKUN/"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://wa.me/62895331493506"><i class="fab fa-whatsapp fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.instagram.com/puppet_of_reaper/"><i class="fab fa-instagram fa-lg" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -267,14 +274,14 @@
                 <div class="col-sm-6 col-md-6 col-lg-4">
                     <div class="team-item text-center">
                         <div class="team-img">
-                            <img class="img-fluid"
+                            <img class="img-developer"
                                 src="{{asset('/Tenpurēto')}}/assets/img/sp.jpg" alt="" height="200px">
                             <div class="team-overlay">
                                 <div class="overlay-social-icon text-center">
                                     <ul class="social-icons">
-                                        <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-whatsapp fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram fa-lg" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -288,13 +295,13 @@
                 <div class="col-sm-6 col-md-6 col-lg-4">
                     <div class="team-item text-center">
                         <div class="team-img">
-                            <img class="img-fluid" src="{{asset('/Tenpurēto')}}/assets/img/20191002_145133.jpg" alt="">
+                            <img class="img-developer" src="{{asset('/Tenpurēto')}}/assets/img/20191002_145133.jpg" alt="">
                             <div class="team-overlay">
                                 <div class="overlay-social-icon text-center">
                                     <ul class="social-icons">
-                                        <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/agustinus-tobing/"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://wa.me/6281221723861"><i class="fab fa-whatsapp fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.instagram.com/lagus_tinustobing/"><i class="fab fa-instagram fa-lg" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -302,6 +309,26 @@
                         <div class="info-text">
                             <h3><a href="#">Agustinus Pardamean Lubman Tobing </a></h3>
                             <p>XI~REKAYASA PERANGKAT LUNAK 1~2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="team-item text-center">
+                        <div class="team-img">
+                            <img class="img-developer" src="{{asset('/Tenpurēto')}}/assets/img/leonard.jpg" alt="">
+                            <div class="team-overlay">
+                                <div class="overlay-social-icon text-center">
+                                    <ul class="social-icons">
+                                        <li><a href="https://github.com/x01000101x/"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://wa.me/6285280044559/ "><i class="fab fa-whatsapp fa-lg" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.instagram.com/leodamaniik/ "><i class="fab fa-instagram fa-lg" aria-hidden="false"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-text">
+                            <h3><a href="#">Leonard Deniel Damanik </a></h3>
+                            <p>XI~REKAYASA PERANGKAT LUNAK 2~2021</p>
                         </div>
                     </div>
                 </div>
@@ -568,6 +595,12 @@
     <script src="{{asset('/Tenpurēto')}}/assets/js/form-validator.min.js"></script>
     <script src="{{asset('/Tenpurēto')}}/assets/js/contact-form-script.min.js"></script>
     <script src="{{asset('/Tenpurēto')}}/assets/js/particlesjs.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
+
+
 </body>
 
 </html>
