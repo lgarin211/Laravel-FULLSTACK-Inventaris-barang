@@ -56,7 +56,7 @@
                         <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                     </ul>
                     <div class="btn-sing float-right">
-                        <a class="btn btn-border" href="/login">Sign In</a>
+                        <a class="btn btn-border" href="{{url('/login')}}">Sign In</a>
                     </div>
                 </div>
             </div>

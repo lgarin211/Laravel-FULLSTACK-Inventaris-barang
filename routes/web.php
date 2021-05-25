@@ -7,6 +7,7 @@ use App\Http\Controllers\update;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Return_;
+use PHPUnit\TextUI\XmlConfiguration\Groups;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,11 @@ Route::put('send_news2/{id}/{pic}', [update::class,'update_out']);
 Auth::routes();
 
 Route::get('/home', function () {return redirect('/');})->name('home');
+
+Route::get('/edit/{id}',[read::class,'read_up_item']);
+Route::put('/edit{id}',[update::class,'put']);
+
+
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -93,3 +99,6 @@ Route::post('/importItem',[creat::class,'importcase']);
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+
+
