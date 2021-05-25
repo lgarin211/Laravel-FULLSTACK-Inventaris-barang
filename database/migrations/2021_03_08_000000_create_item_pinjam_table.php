@@ -22,8 +22,8 @@ class CreateItemPinjamtable extends Migration
             $table->string('kategori');
             $table->integer('pic');
             $table->string('barcode');
-            $table->tex('deks');
-            $table->tex('petugas');
+            $table->text('deks');
+            $table->text('petugas');
             $table->timestamps();
         });
     }
